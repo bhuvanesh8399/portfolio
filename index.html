@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" data-color-scheme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhuvanesh D - Full-Stack Developer</title>
+    <meta name="description" content="Portfolio of Bhuvanesh D, Final-year B.Tech IT student specializing in Java, React, Flutter, and AI development">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Enhanced Loading Screen -->
+    <div class="loading-screen" id="loadingScreen" role="dialog" aria-modal="true" aria-labelledby="loading-title">
+        <div class="loading-content">
+            <div class="loading-logo loader__logo" id="loadingLogo">
+                <span>BD</span>
+                <canvas id="sparkleCanvas" class="sparkle-canvas"></canvas>
+            </div>
+            <div class="loading-text loader__text" id="loadingText" aria-live="polite">
+                <span id="loading-title">Loading Portfolio</span><span class="dots" aria-hidden="true">...</span>
+            </div>
+            <div class="loading-bar loader__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Loading progress">
+                <div class="loading-progress loader__progress" id="loadingProgress"></div>
+            </div>
+            <div class="loading-percentage" id="loadingPercentage" aria-live="polite">0%</div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Particles Background -->
+    <div id="particles" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text" id="navBrand">BD</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link" data-section="home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+                <li><a href="#resume" class="nav-link" data-section="resume">Resume</a></li>
+                <li><a href="#timeline" class="nav-link" data-section="timeline">Journey</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+                <div class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <!-- Active nav indicator -->
+            <div class="nav-indicator" id="navIndicator" aria-hidden="true"></div>
+        </div>
+    </nav>
+
+    <!-- Page transition overlay -->
+    <div class="page-transition" id="pageTransition" aria-hidden="true"></div>
+
+    <main id="main">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content container">
+                <div class="hero-text">
+                    <h1 class="hero-name" id="heroName">
+                        <span class="letter">B</span>
+                        <span class="letter">h</span>
+                        <span class="letter">u</span>
+                        <span class="letter">v</span>
+                        <span class="letter">a</span>
+                        <span class="letter">n</span>
+                        <span class="letter">e</span>
+                        <span class="letter">s</span>
+                        <span class="letter">h</span>
+                        <span class="letter"> </span>
+                        <span class="letter">D</span>
+                    </h1>
+                    <div class="hero-roles" aria-live="polite" aria-label="Current roles">
+                        <div class="role-text" id="roleText">Java Developer</div>
+                    </div>
+                    <p class="hero-description">
+                        Building innovative solutions with clean code & scalable architecture. 
+                        Passionate developer with a vision for innovation.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="4">0</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="20">0</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="10">0</span>
+                            <span class="stat-label">Skills</span>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <button class="btn btn--primary resume-download-btn" onclick="downloadResume()">
+                            <i class="fas fa-download" aria-hidden="true"></i>
+                            Download Resume
+                        </button>
+                        <a href="#contact" class="btn btn--secondary" data-scroll="contact">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-card" data-parallax="0.05">
+                        <div class="card-content">
+                            <i class="fab fa-java" aria-hidden="true"></i>
+                            <span>Java Expert</span>
+                        </div>
+                    </div>
+                    <div class="floating-card" data-parallax="0.08">
+                        <div class="card-content">
+                            <i class="fab fa-react" aria-hidden="true"></i>
+                            <span>React Developer</span>
+                        </div>
+                    </div>
+                    <div class="floating-card" data-parallax="0.06">
+                        <div class="card-content">
+                            <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+                            <span>Flutter Apps</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-indicator" aria-hidden="true">
+                    <div class="scroll-arrow"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="section-subtitle">Proficiency across the full development stack</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-image-container">
+                        <div class="about-image">
+                            <img src="images\k1.jpg" alt="Bhuvanesh D - Professional photo" class="profile-image" loading="lazy">
+                            <div class="image-overlay">
+                                <div class="overlay-content">
+                                    <i class="fas fa-code" aria-hidden="true"></i>
+                                    <span>Full Stack Developer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <p class="about-bio">
+                            Final-year B.Tech (IT) student with a strong foundation in Java and working knowledge of Python, C, React, Flutter, and AI. Passionate about problem-solving and continuous learning. Eager to apply technical skills in real-world projects and grow as a software developer in a dynamic, innovation-driven environment.
+                        </p>
+                        <div class="about-details">
+                            <div class="detail-item">
+                                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                                <div>
+                                    <strong>Education</strong>
+                                    <span>B.Tech IT, Kalasalingam University (2022-2026)</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <div>
+                                    <strong>Location</strong>
+                                    <span>Tamil Nadu, India</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                <div>
+                                    <strong>Email</strong>
+                                    <span>dbhuvanesh210@gmail.com</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Certificates Accordion -->
+                        <div class="certificates-section">
+                            <h3>Certifications</h3>
+                            <div class="accordion" id="certificatesAccordion">
+                                <div class="accordion-item" id="cert-encryptcon">
+                                    <button class="accordion-header" aria-expanded="false" aria-controls="cert-encryptcon-content">
+                                        <span>Encryptcon 24-Hr Hackathon Winner</span>
+                                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="accordion-content" id="cert-encryptcon-content" role="region" aria-labelledby="cert-encryptcon">
+                                        <p>Won the prestigious 24-hour hackathon focusing on encryption technologies and blockchain security implementations.</p>
+                                    </div>
+                                </div>
+                                <div class="accordion-item" id="cert-acm">
+                                    <button class="accordion-header" aria-expanded="false" aria-controls="cert-acm-content">
+                                        <span>Codex Cryptum - ACM Certification</span>
+                                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="accordion-content" id="cert-acm-content" role="region" aria-labelledby="cert-acm">
+                                        <p>Association for Computing Machinery certification in cryptographic algorithms and secure coding practices.</p>
+                                    </div>
+                                </div>
+                                <div class="accordion-item" id="cert-devops">
+                                    <button class="accordion-header" aria-expanded="false" aria-controls="cert-devops-content">
+                                        <span>DevOps Dojo - ITE</span>
+                                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="accordion-content" id="cert-devops-content" role="region" aria-labelledby="cert-devops">
+                                        <p>Comprehensive DevOps training covering CI/CD pipelines, containerization, and cloud deployment strategies.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Skills & Expertise</h2>
+                    <p class="section-subtitle">Innovative solutions built with modern technologies</p>
+                </div>
+                <div class="skills-categories">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-server" aria-hidden="true"></i> Backend Development</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item" data-stars="5" tabindex="0">
+                                <div class="skill-header">
+                                    <span class="skill-name">Java</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90"></div>
+                                </div>
+                                <div class="skill-description">Strong foundation with Spring Boot framework</div>
+                                <div class="skill-stars" aria-hidden="true">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="skill-tooltip" role="tooltip" aria-hidden="true">Enterprise-level Java development</div>
+                            </div>
+                            <div class="skill-item" data-stars="4" tabindex="0">
+                                <div class="skill-header">
+                                    <span class="skill-name">Python</span>
+                                    <span class="skill-percentage">75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="75"></div>
+                                </div>
+                                <div class="skill-description">Data science and web development</div>
+                                <div class="skill-stars" aria-hidden="true">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <div class="skill-tooltip" role="tooltip" aria-hidden="true">AI/ML and backend services</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-paint-brush" aria-hidden="true"></i> Frontend Development</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item" data-stars="4" tabindex="0">
+                                <div class="skill-header">
+                                    <span class="skill-name">React</span>
+                                    <span class="skill-percentage">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80"></div>
+                                </div>
+                                <div class="skill-description">Modern UI development with hooks</div>
+                                <div class="skill-stars" aria-hidden="true">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <div class="skill-tooltip" role="tooltip" aria-hidden="true">Component-based architecture</div>
+                            </div>
+                            <div class="skill-item" data-stars="4" tabindex="0">
+                                <div class="skill-header">
+                                    <span class="skill-name">JavaScript</span>
+                                    <span class="skill-percentage">75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="75"></div>
+                                </div>
+                                <div class="skill-description">ES6+ and modern web APIs</div>
+                                <div class="skill-stars" aria-hidden="true">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <div class="skill-tooltip" role="tooltip" aria-hidden="true">Modern JavaScript frameworks</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-mobile-alt" aria-hidden="true"></i> Mobile & Database</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item" data-stars="4" tabindex="0">
+                                <div class="skill-header">
+                                    <span class="skill-name">Flutter</span>
+                                    <span class="skill-percentage">70%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="70"></div>
+                                </div>
+                                <div class="skill-description">Cross-platform mobile apps</div>
+                                <div class="skill-stars" aria-hidden="true">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <div class="skill-tooltip" role="tooltip" aria-hidden="true">iOS and Android development</div>
+                            </div>
+                            <div class="skill-item" data-stars="4" tabindex="0">
+                                <div class="skill-header">
+                                    <span class="skill-name">MySQL</span>
+                                    <span class="skill-percentage">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80"></div>
+                                </div>
+                                <div class="skill-description">Relational database design</div>
+                                <div class="skill-stars" aria-hidden="true">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <div class="skill-tooltip" role="tooltip" aria-hidden="true">Database optimization and design</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-subtitle">Comprehensive overview of my work</p>
+                </div>
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Projects will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume" class="resume-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Professional Profile</h2>
+                    <p class="section-subtitle">Download my complete professional profile</p>
+                </div>
+                <div class="resume-content">
+                    <div class="resume-preview">
+                        <div class="resume-mockup" onclick="downloadResume()" role="button" tabindex="0" aria-label="Download resume">
+                            <div class="resume-header">
+                                <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                            </div>
+                            <div class="resume-body">
+                                <div class="resume-lines">
+                                    <div class="line long"></div>
+                                    <div class="line medium"></div>
+                                    <div class="line long"></div>
+                                    <div class="line short"></div>
+                                    <div class="line medium"></div>
+                                    <div class="line long"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resume-info">
+                        <h3>Professional Resume</h3>
+                        <p>Comprehensive overview of my skills, experience, projects, and achievements. Updated regularly with latest accomplishments and certifications.</p>
+                        <ul class="resume-highlights">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> 4+ years of development experience</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> 20+ successful projects completed</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Full-stack development expertise</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Modern technology stack proficiency</li>
+                        </ul>
+                        <button class="btn btn--primary resume-download-btn" onclick="downloadResume()">
+                            <i class="fas fa-download" aria-hidden="true"></i>
+                            Download Resume
+                        </button>
+                        <div class="download-success-message" id="downloadSuccess">
+                            <i class="fas fa-check-circle" aria-hidden="true"></i>
+                            <span>Resume downloaded successfully!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline" class="timeline-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">My Journey</h2>
+                    <p class="section-subtitle">Milestones and achievements</p>
+                </div>
+                <div class="timeline" id="timeline">
+                    <!-- Timeline items will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="section-subtitle">Ready to bring your ideas to life</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <a href="mailto:dbhuvanesh210@gmail.com">dbhuvanesh210@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <a href="tel:+918925597374">+91 8925597374</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/bhuvanesh-d-4a1642370" target="_blank" rel="noopener">Connect with me</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-github" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>GitHub</h4>
+                                <a href="https://github.com/bhuvanesh8399" target="_blank" rel="noopener">View my projects</a>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name *</label>
+                            <input type="text" id="name" name="name" class="form-control" required aria-describedby="name-error">
+                            <span class="error-message" id="name-error" role="alert"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email *</label>
+                            <input type="email" id="email" name="email" class="form-control" required aria-describedby="email-error">
+                            <span class="error-message" id="email-error" role="alert"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject *</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required aria-describedby="subject-error">
+                            <span class="error-message" id="subject-error" role="alert"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea id="message" name="message" class="form-control" rows="6" required aria-describedby="message-error"></textarea>
+                            <span class="error-message" id="message-error" role="alert"></span>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">
+                            <span class="btn-text">Send Message</span>
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Top Rocket -->
+    <div class="back-to-top" id="backToTop" aria-label="Back to top" role="button" tabindex="0">
+        <div class="rocket" id="rocket">
+            <i class="fas fa-rocket" aria-hidden="true"></i>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
