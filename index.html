@@ -1,389 +1,2264 @@
 <!DOCTYPE html>
-<html lang="en" data-color-scheme="light">
+<html lang="en" data-theme="dark">
 <head>
+    <!-- ====== META & SEO ====== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhuvanesh D - Full-Stack Developer</title>
-    <meta name="description" content="Portfolio of Bhuvanesh D, Final-year B.Tech IT student specializing in Java, React, Flutter, and AI development">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Bhuvanesh D - Full Stack Developer specializing in Java, React, Flutter, and AI. Building innovative solutions with clean code and scalable architecture.">
+    <meta name="keywords" content="Full Stack Developer, Java, React, Flutter, AI, Web Development, Software Engineer, Bhuvanesh D">
+    <meta name="author" content="Bhuvanesh D">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bhuvaneshd.dev">
+    
+    <!-- ====== OPEN GRAPH ====== -->
+    <meta property="og:title" content="Bhuvanesh D - Full Stack Developer">
+    <meta property="og:description" content="Building innovative solutions with clean code & scalable architecture">
+    <meta property="og:image" content="./k1.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bhuvaneshd.dev">
+    
+    <!-- ====== TWITTER CARDS ====== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bhuvanesh D - Full Stack Developer">
+    <meta name="twitter:description" content="Building innovative solutions with clean code & scalable architecture">
+    <meta name="twitter:image" content="./k1.jpg">
+    
+    <title>Bhuvanesh D - Full Stack Developer | Java, React, Flutter, AI Specialist</title>
+    
+    <!-- ====== PRELOAD CRITICAL ASSETS ====== -->
+    <link rel="preload" href="./k1.jpg" as="image" fetchpriority="high">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@700;900&display=swap" as="style">
+    
+    <!-- ====== FONTS ====== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- ====== FAVICON ====== -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    
+    <!-- ====== THEME COLOR ====== -->
+    <meta name="theme-color" content="#0a0a0f">
+    
+    <!-- ====== STRUCTURED DATA ====== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Person",
+                "name": "Bhuvanesh D",
+                "jobTitle": "Full Stack Developer",
+                "email": "dbhuvanesh210@gmail.com",
+                "telephone": "+91-8925597374",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressRegion": "Tamil Nadu",
+                    "addressCountry": "India"
+                },
+                "sameAs": [
+                    "https://github.com/bhuvanesh8399",
+                    "https://www.linkedin.com/in/bhuvanesh-d-4a1642370"
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "name": "Bhuvanesh D Portfolio",
+                "url": "https://bhuvaneshd.dev"
+            }
+        ]
+    }
+    </script>
+
+    <!-- ====== EMBEDDED STYLES ====== -->
+    <style>
+        /* ====== CSS CUSTOM PROPERTIES ====== */
+        :root {
+            /* Colors - Dark Theme */
+            --color-bg: #0a0a0f;
+            --color-surface: #111118;
+            --color-surface-2: #1a1a23;
+            --color-text: #ffffff;
+            --color-text-muted: #a0a0ab;
+            --color-text-dim: #6b6b76;
+            --color-primary: #00d4ff;
+            --color-primary-hover: #00b8e6;
+            --color-primary-glow: rgba(0, 212, 255, 0.3);
+            --color-accent: #ff6b6b;
+            --color-accent-glow: rgba(255, 107, 107, 0.3);
+            --color-success: #4ecdc4;
+            --color-error: #ff6b6b;
+            --color-warning: #ffe66d;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            --gradient-accent: linear-gradient(135deg, #ff6b6b 0%, #cc5555 100%);
+            --gradient-surface: linear-gradient(135deg, #111118 0%, #1a1a23 100%);
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 20px var(--color-primary-glow);
+            
+            /* Typography */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-heading: 'Orbitron', 'Inter', sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+            --font-size-5xl: 3rem;
+            --font-size-6xl: 3.75rem;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+            --font-weight-black: 800;
+            --line-height-tight: 1.25;
+            --line-height-normal: 1.5;
+            --line-height-relaxed: 1.75;
+            
+            /* Spacing */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-20: 5rem;
+            --space-24: 6rem;
+            
+            /* Border Radius */
+            --radius-sm: 0.25rem;
+            --radius-base: 0.5rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            --radius-full: 9999px;
+            
+            /* Animations */
+            --duration-fast: 0.15s;
+            --duration-normal: 0.3s;
+            --duration-slow: 0.5s;
+            --ease-out: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+            --ease-back: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+            
+            /* Layout */
+            --container-max: 1200px;
+            --header-height: 4rem;
+            
+            /* Z-Index Scale */
+            --z-dropdown: 1000;
+            --z-sticky: 1020;
+            --z-fixed: 1030;
+            --z-modal: 1040;
+            --z-tooltip: 1050;
+            --z-cursor: 9999;
+        }
+
+        /* Light Theme */
+        [data-theme="light"] {
+            --color-bg: #ffffff;
+            --color-surface: #f8f9fa;
+            --color-surface-2: #e9ecef;
+            --color-text: #212529;
+            --color-text-muted: #6c757d;
+            --color-text-dim: #adb5bd;
+            --color-primary: #0066cc;
+            --color-primary-hover: #0052a3;
+            --color-primary-glow: rgba(0, 102, 204, 0.2);
+            --gradient-surface: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        /* ====== BASE STYLES ====== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            scroll-padding-top: calc(var(--header-height) + 1rem);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-normal);
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ====== TYPOGRAPHY ====== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: var(--font-weight-bold);
+            line-height: var(--line-height-tight);
+            color: var(--color-text);
+        }
+
+        h1 { font-size: var(--font-size-5xl); }
+        h2 { font-size: var(--font-size-4xl); }
+        h3 { font-size: var(--font-size-3xl); }
+        h4 { font-size: var(--font-size-2xl); }
+        h5 { font-size: var(--font-size-xl); }
+        h6 { font-size: var(--font-size-lg); }
+
+        p {
+            margin-bottom: var(--space-4);
+            color: var(--color-text-muted);
+            line-height: var(--line-height-relaxed);
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color var(--duration-normal) var(--ease-out);
+        }
+
+        a:hover, a:focus {
+            color: var(--color-primary-hover);
+        }
+
+        strong {
+            color: var(--color-text);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        /* ====== SKIP LINKS ====== */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--color-primary);
+            color: var(--color-bg);
+            padding: 8px;
+            border-radius: var(--radius-base);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            z-index: 1000;
+            transition: top var(--duration-normal) var(--ease-out);
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* ====== LOADING SCREEN ====== */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--color-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity var(--duration-slow) var(--ease-out), 
+                        visibility var(--duration-slow) var(--ease-out);
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-content {
+            text-align: center;
+        }
+
+        .loading-logo {
+            font-size: 3rem;
+            font-weight: var(--font-weight-black);
+            color: var(--color-primary);
+            margin-bottom: var(--space-4);
+            text-shadow: 0 0 20px var(--color-primary-glow);
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+
+        .loading-text {
+            color: var(--color-text-muted);
+            margin-bottom: var(--space-6);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .loading-progress {
+            width: 200px;
+            height: 4px;
+            background: var(--color-surface-2);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .loading-bar {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-full);
+            width: 0%;
+            transition: width var(--duration-normal) var(--ease-out);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+
+        /* ====== CUSTOM CURSOR ====== */
+        .cursor,
+        .cursor-follower {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: var(--z-cursor);
+            mix-blend-mode: difference;
+            transition: transform var(--duration-fast) var(--ease-out);
+        }
+
+        .cursor {
+            width: 8px;
+            height: 8px;
+            background: var(--color-primary);
+            top: -4px;
+            left: -4px;
+        }
+
+        .cursor-follower {
+            width: 32px;
+            height: 32px;
+            border: 2px solid var(--color-primary);
+            opacity: 0.5;
+            top: -16px;
+            left: -16px;
+        }
+
+        @media (hover: none) {
+            .cursor,
+            .cursor-follower {
+                display: none;
+            }
+        }
+
+        /* ====== CONFETTI CANVAS ====== */
+        .confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: var(--z-modal);
+            opacity: 0;
+            transition: opacity var(--duration-normal) var(--ease-out);
+        }
+
+        .confetti-canvas.active {
+            opacity: 1;
+        }
+
+        /* ====== UTILITIES ====== */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 var(--space-6);
+            }
+        }
+
+        /* ====== BUTTONS ====== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-3) var(--space-6);
+            border: none;
+            border-radius: var(--radius-base);
+            font-family: inherit;
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--duration-normal) var(--ease-out);
+            min-height: 44px;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left var(--duration-slow) var(--ease-out);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover, .btn-primary:focus {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
+        }
+
+        .btn-secondary {
+            background: var(--color-surface);
+            color: var(--color-text);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn-secondary:hover, .btn-secondary:focus {
+            background: var(--color-primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-full {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        /* ====== HEADER & NAVIGATION ====== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-surface);
+            z-index: var(--z-sticky);
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+
+        .nav-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: var(--header-height);
+        }
+
+        .nav-brand .brand-link {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-black);
+            color: var(--color-primary);
+            text-shadow: 0 0 10px var(--color-primary-glow);
+            transition: transform var(--duration-normal) var(--ease-out);
+        }
+
+        .nav-brand .brand-link:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-menu {
+            display: none;
+            list-style: none;
+            gap: var(--space-2);
+        }
+
+        @media (min-width: 768px) {
+            .nav-menu {
+                display: flex;
+            }
+        }
+
+        .nav-link {
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-base);
+            color: var(--color-text-muted);
+            font-weight: var(--font-weight-medium);
+            transition: all var(--duration-normal) var(--ease-out);
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--color-primary);
+            background: var(--color-surface);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background: var(--color-primary);
+            border-radius: var(--radius-full);
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .theme-toggle {
+            padding: var(--space-2);
+            background: var(--color-surface);
+            color: var(--color-text);
+            border: none;
+            border-radius: var(--radius-base);
+            cursor: pointer;
+            transition: all var(--duration-normal) var(--ease-out);
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover,
+        .theme-toggle:focus {
+            background: var(--color-primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .theme-toggle:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        /* ====== MOBILE MENU ====== */
+        .menu-button {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 44px;
+            height: 44px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: var(--space-2);
+        }
+
+        @media (min-width: 768px) {
+            .menu-button {
+                display: none;
+            }
+        }
+
+        .menu-icon span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--color-text);
+            margin: 2px 0;
+            transition: all var(--duration-normal) var(--ease-out);
+            border-radius: var(--radius-full);
+        }
+
+        .menu-button[aria-expanded="true"] .menu-icon span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-button[aria-expanded="true"] .menu-icon span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-button[aria-expanded="true"] .menu-icon span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            width: 100%;
+            height: calc(100vh - var(--header-height));
+            background: var(--color-bg);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--duration-normal) var(--ease-out);
+            z-index: var(--z-dropdown);
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-content {
+            padding: var(--space-8);
+        }
+
+        .mobile-nav-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+
+        .mobile-nav-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-4);
+            color: var(--color-text);
+            border-radius: var(--radius-base);
+            transition: all var(--duration-normal) var(--ease-out);
+            min-height: 44px;
+        }
+
+        .mobile-nav-link:hover,
+        .mobile-nav-link:focus {
+            background: var(--color-surface);
+            color: var(--color-primary);
+        }
+
+        /* ====== HERO SECTION ====== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: calc(var(--header-height) + var(--space-8)) var(--space-4) var(--space-8);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        .hero-3d,
+        .particles-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.6;
+        }
+
+        .hero-3d {
+            z-index: -1;
+        }
+
+        .particles-canvas {
+            z-index: -1;
+            display: none;
+        }
+
+        .hero-3d:not([src*="spline"]) + .particles-canvas,
+        .hero-3d[style*="display: none"] + .particles-canvas {
+            display: block;
+        }
+
+        .hero-content {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            gap: var(--space-8);
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr auto;
+                gap: var(--space-16);
+            }
+        }
+
+        .hero-text {
+            z-index: 1;
+        }
+
+        .hero-greeting {
+            margin-bottom: var(--space-4);
+        }
+
+        .greeting-text {
+            color: var(--color-primary);
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .hero-name {
+            margin-bottom: var(--space-4);
+            font-family: var(--font-heading);
+            font-size: var(--font-size-6xl);
+            font-weight: var(--font-weight-black);
+            font-style: italic;
+            background: linear-gradient(135deg, var(--color-text) 0%, var(--color-primary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid var(--color-primary);
+            animation: nameGlow 3s ease-in-out infinite alternate,
+                      typewriter 4s steps(40, end),
+                      blink-caret 1s step-end infinite;
+        }
+
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--color-primary); }
+        }
+
+        @keyframes nameGlow {
+            0% { filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3)); }
+            100% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.6)); }
+        }
+
+        .hero-role {
+            margin-bottom: var(--space-6);
+            height: 2em;
+            overflow: hidden;
+        }
+
+        .role-text {
+            font-size: var(--font-size-xl);
+            color: var(--color-primary);
+            font-weight: var(--font-weight-medium);
+            display: block;
+            animation: fadeInUp var(--duration-slow) var(--ease-out);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-description {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-8);
+            max-width: 600px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform var(--duration-slow) var(--ease-out);
+        }
+
+        .hero-image-container:hover {
+            transform: perspective(1000px) rotateY(5deg) scale(1.05);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--duration-slow) var(--ease-out);
+        }
+
+        .hero-image-glow {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-xl);
+            z-index: -1;
+            filter: blur(20px);
+            opacity: 0.5;
+            animation: pulse 3s ease-in-out infinite alternate;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: var(--space-8);
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-arrow {
+            width: 24px;
+            height: 24px;
+            border-right: 2px solid var(--color-primary);
+            border-bottom: 2px solid var(--color-primary);
+            transform: rotate(45deg);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* ====== SECTIONS ====== */
+        section {
+            padding: var(--space-20) 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-16);
+        }
+
+        .section-title {
+            margin-bottom: var(--space-4);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-full);
+        }
+
+        .section-subtitle {
+            color: var(--color-text-muted);
+            font-size: var(--font-size-lg);
+        }
+
+        /* ====== RESUME SECTION ====== */
+        .resume {
+            background: var(--gradient-surface);
+        }
+
+        .resume-content {
+            display: grid;
+            gap: var(--space-12);
+            margin-top: var(--space-8);
+        }
+
+        @media (min-width: 1024px) {
+            .resume-content {
+                grid-template-columns: 350px 1fr;
+                gap: var(--space-16);
+            }
+        }
+
+        .resume-preview {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .resume-mockup {
+            width: 280px;
+            height: 360px;
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            position: relative;
+            transition: all var(--duration-slow) var(--ease-out);
+            cursor: pointer;
+            margin-bottom: var(--space-6);
+        }
+
+        .resume-mockup:hover {
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 0 20px 40px var(--color-primary-glow);
+        }
+
+        .resume-header {
+            background: var(--color-primary);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .resume-header i {
+            font-size: var(--font-size-3xl);
+        }
+
+        .resume-body {
+            padding: var(--space-6);
+        }
+
+        .resume-lines {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+
+        .line {
+            height: 8px;
+            background: var(--color-surface-2);
+            border-radius: var(--radius-full);
+        }
+
+        .line.long { width: 100%; }
+        .line.medium { width: 75%; }
+        .line.short { width: 50%; }
+
+        .resume-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-6);
+        }
+
+        .resume-info h3 {
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--space-4);
+            color: var(--color-text);
+        }
+
+        .resume-info p {
+            color: var(--color-text-muted);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: var(--space-6);
+        }
+
+        .resume-highlights {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 var(--space-8) 0;
+        }
+
+        .resume-highlights li {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-3);
+            color: var(--color-text-muted);
+        }
+
+        .resume-highlights i {
+            color: var(--color-success);
+            font-size: var(--font-size-sm);
+        }
+
+        .resume-details {
+            background: var(--color-surface);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-surface-2);
+        }
+
+        .detail-section {
+            margin-bottom: var(--space-6);
+        }
+
+        .detail-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-section h4 {
+            color: var(--color-primary);
+            margin-bottom: var(--space-3);
+            font-size: var(--font-size-lg);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+            margin-bottom: var(--space-4);
+        }
+
+        .skill-tag {
+            background: var(--color-surface-2);
+            color: var(--color-text);
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+
+        .skill-tag:hover {
+            background: var(--color-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            color: var(--color-text-muted);
+        }
+
+        .contact-info-item i {
+            color: var(--color-primary);
+            width: 16px;
+            flex-shrink: 0;
+        }
+
+        .contact-info-item a {
+            color: var(--color-text-muted);
+            transition: color var(--duration-normal) var(--ease-out);
+        }
+
+        .contact-info-item a:hover {
+            color: var(--color-primary);
+        }
+
+        /* ====== ABOUT SECTION ====== */
+        .about {
+            background: var(--color-bg);
+        }
+
+        .about-content {
+            display: grid;
+            gap: var(--space-12);
+            margin-top: var(--space-8);
+        }
+
+        @media (min-width: 1024px) {
+            .about-content {
+                grid-template-columns: 350px 1fr;
+                gap: var(--space-16);
+            }
+        }
+
+        .about-image-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .about-image-container {
+            position: relative;
+            width: 280px;
+            height: 350px;
+            margin-bottom: var(--space-6);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all var(--duration-slow) var(--ease-out);
+        }
+
+        .about-image-container:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px var(--color-primary-glow);
+        }
+
+        .about-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-quick-facts {
+            background: var(--color-surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-surface-2);
+            width: 100%;
+        }
+
+        .quick-facts-grid {
+            display: grid;
+            gap: var(--space-3);
+            font-size: var(--font-size-sm);
+        }
+
+        .fact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .fact-item i {
+            color: var(--color-primary);
+            width: 16px;
+            flex-shrink: 0;
+        }
+
+        .fact-label {
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text);
+            min-width: 80px;
+        }
+
+        .fact-value {
+            color: var(--color-text-muted);
+        }
+
+        .about-details {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-8);
+        }
+
+        .about-intro {
+            font-size: var(--font-size-lg);
+            line-height: var(--line-height-relaxed);
+            color: var(--color-text);
+            margin-bottom: var(--space-6);
+        }
+
+        .about-cards {
+            display: grid;
+            gap: var(--space-6);
+        }
+
+        @media (min-width: 768px) {
+            .about-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .about-card {
+            background: var(--color-surface);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-surface-2);
+            transition: all var(--duration-normal) var(--ease-out);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.05), transparent);
+            transition: left var(--duration-slow) var(--ease-out);
+        }
+
+        .about-card:hover::before {
+            left: 100%;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-primary);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-4);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: var(--font-size-lg);
+        }
+
+        .card-title {
+            color: var(--color-text);
+            margin: 0;
+        }
+
+        .card-content {
+            color: var(--color-text-muted);
+            line-height: var(--line-height-relaxed);
+        }
+
+        .achievements-list {
+            list-style: none;
+            padding: 0;
+            margin: var(--space-4) 0 0 0;
+        }
+
+        .achievement-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-3);
+            margin-bottom: var(--space-3);
+            padding: var(--space-3);
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: var(--radius-base);
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+
+        .achievement-item:hover {
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .achievement-icon {
+            color: var(--color-primary);
+            font-size: var(--font-size-sm);
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        /* ====== ABOUT/JOURNEY SECTION ====== */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-full);
+        }
+
+        @media (max-width: 767px) {
+            .timeline::before {
+                left: 20px;
+            }
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--space-12);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all var(--duration-slow) var(--ease-out);
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        @media (max-width: 767px) {
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: row;
+                padding-left: var(--space-16);
+            }
+        }
+
+        .timeline-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: var(--font-size-lg);
+            flex-shrink: 0;
+            z-index: 2;
+            position: relative;
+        }
+
+        .timeline-content {
+            background: var(--color-surface);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            margin: 0 var(--space-8);
+            max-width: 400px;
+            position: relative;
+            border: 1px solid var(--color-surface-2);
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -20px;
+            border-left-color: var(--color-surface);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -20px;
+            border-right-color: var(--color-surface);
+        }
+
+        @media (max-width: 767px) {
+            .timeline-content::before,
+            .timeline-item:nth-child(even) .timeline-content::before {
+                left: -20px;
+                border-right-color: var(--color-surface);
+                border-left-color: transparent;
+            }
+        }
+
+        .timeline-content h3 {
+            margin-bottom: var(--space-2);
+            color: var(--color-primary);
+        }
+
+        .timeline-content p {
+            margin: 0;
+            line-height: var(--line-height-relaxed);
+        }
+
+        .timeline-item::before {
+            content: attr(data-year);
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-primary);
+            color: white;
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-bold);
+            z-index: 3;
+        }
+
+        @media (max-width: 767px) {
+            .timeline-item::before {
+                left: 20px;
+            }
+        }
+
+        /* ====== SKILLS SECTION ====== */
+        .skills {
+            background: var(--gradient-surface);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-6);
+            margin-top: var(--space-8);
+        }
+
+        .skill-card {
+            background: var(--color-surface);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-surface-2);
+            transition: all var(--duration-normal) var(--ease-out);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transition: left var(--duration-slow) var(--ease-out);
+        }
+
+        .skill-card:hover::before {
+            left: 100%;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
+            border-color: var(--color-primary);
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-4);
+        }
+
+        .skill-name {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text);
+        }
+
+        .skill-level {
+            color: var(--color-primary);
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-sm);
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--color-surface-2);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            margin-bottom: var(--space-3);
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-full);
+            width: 0%;
+            transition: width 1s var(--ease-out) 0.5s;
+            position: relative;
+        }
+
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .skill-description {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-muted);
+            line-height: var(--line-height-relaxed);
+        }
+
+        .skill-stars {
+            display: flex;
+            gap: var(--space-1);
+            margin-top: var(--space-3);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+
+        .skill-card:hover .skill-stars {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skill-star {
+            color: #ffd700;
+            font-size: var(--font-size-sm);
+        }
+
+        /* ====== PROJECTS SECTION ====== */
+        .projects {
+            background: var(--color-bg);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-8);
+            margin-top: var(--space-8);
+        }
+
+        .project-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--color-surface-2);
+            transition: all var(--duration-normal) var(--ease-out);
+            position: relative;
+            group: hover;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-primary);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--duration-slow) var(--ease-out);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-placeholder {
+            color: white;
+            font-size: var(--font-size-3xl);
+            opacity: 0.8;
+        }
+
+        .project-content {
+            padding: var(--space-6);
+        }
+
+        .project-header {
+            margin-bottom: var(--space-4);
+        }
+
+        .project-title {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--space-2);
+            color: var(--color-text);
+        }
+
+        .project-category {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-description {
+            margin-bottom: var(--space-4);
+            line-height: var(--line-height-relaxed);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+            margin-bottom: var(--space-6);
+        }
+
+        .tech-tag {
+            background: var(--color-surface-2);
+            color: var(--color-text-muted);
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+
+        .tech-tag:hover {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .project-links {
+            display: flex;
+            gap: var(--space-3);
+        }
+
+        .project-link {
+            flex: 1;
+            text-align: center;
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            transition: all var(--duration-normal) var(--ease-out);
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+        }
+
+        .project-link.primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .project-link.secondary {
+            background: var(--color-surface-2);
+            color: var(--color-text);
+            border: 1px solid var(--color-surface-2);
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .project-link.primary:hover {
+            box-shadow: var(--shadow-glow);
+        }
+
+        .project-link.secondary:hover {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        /* ====== CONTACT SECTION ====== */
+        .contact {
+            background: var(--gradient-surface);
+        }
+
+        .contact-content {
+            display: grid;
+            gap: var(--space-12);
+            margin-top: var(--space-8);
+        }
+
+        @media (min-width: 1024px) {
+            .contact-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-info {
+            display: grid;
+            gap: var(--space-6);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-6);
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-surface-2);
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-primary);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: var(--font-size-lg);
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            margin-bottom: var(--space-1);
+            color: var(--color-text);
+        }
+
+        .contact-details a {
+            color: var(--color-text-muted);
+            transition: color var(--duration-normal) var(--ease-out);
+        }
+
+        .contact-details a:hover {
+            color: var(--color-primary);
+        }
+
+        /* ====== CONTACT FORM ====== */
+        .contact-form {
+            background: var(--color-surface);
+            padding: var(--space-8);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-surface-2);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-6);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-2);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: var(--space-4);
+            border: 2px solid var(--color-surface-2);
+            border-radius: var(--radius-base);
+            background: var(--color-bg);
+            color: var(--color-text);
+            font-family: inherit;
+            font-size: var(--font-size-base);
+            transition: all var(--duration-normal) var(--ease-out);
+            min-height: 44px;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px var(--color-primary-glow);
+            transform: translateY(-2px);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-error {
+            display: block;
+            color: var(--color-error);
+            font-size: var(--font-size-sm);
+            margin-top: var(--space-2);
+            min-height: 20px;
+        }
+
+        .form-input.error {
+            border-color: var(--color-error);
+        }
+
+        .form-input.success {
+            border-color: var(--color-success);
+        }
+
+        .form-status {
+            margin-top: var(--space-4);
+            padding: var(--space-4);
+            border-radius: var(--radius-base);
+            text-align: center;
+            font-weight: var(--font-weight-medium);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+
+        .form-status.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .form-status.success {
+            background: rgba(78, 205, 196, 0.1);
+            color: var(--color-success);
+            border: 1px solid var(--color-success);
+        }
+
+        .form-status.error {
+            background: rgba(255, 107, 107, 0.1);
+            color: var(--color-error);
+            border: 1px solid var(--color-error);
+        }
+
+        .form-status.loading {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--color-primary);
+            border: 1px solid var(--color-primary);
+        }
+
+        /* ====== FOOTER ====== */
+        .footer {
+            background: var(--color-bg);
+            padding: var(--space-12) 0;
+            border-top: 1px solid var(--color-surface-2);
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-4);
+        }
+
+        .footer p {
+            margin: 0;
+            color: var(--color-text-muted);
+        }
+
+        .heart {
+            color: var(--color-accent);
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .footer-link {
+            color: var(--color-primary);
+            font-weight: var(--font-weight-medium);
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+
+        .footer-link:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ====== ANIMATIONS & VISIBILITY ====== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all var(--duration-slow) var(--ease-out);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ====== RESPONSIVE DESIGN ====== */
+        @media (max-width: 480px) {
+            :root {
+                --space-4: 1rem;
+                --space-8: 1.5rem;
+                --space-16: 2.5rem;
+                --space-20: 3rem;
+            }
+            
+            .container {
+                padding: 0 var(--space-3);
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .nav-container {
+                padding: 0 var(--space-3);
+            }
+
+            .hero-name {
+                font-size: var(--font-size-4xl);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                text-align: center;
+            }
+            
+            .hero-name {
+                font-size: var(--font-size-5xl);
+            }
+            
+            .hero-image-container {
+                width: 250px;
+                height: 320px;
+                transform: none;
+            }
+            
+            .projects-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .resume-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ====== ACCESSIBILITY ====== */
+        @media (prefers-reduced-motion: reduce) {
+            .cursor,
+            .cursor-follower {
+                display: none;
+            }
+            
+            .particles-canvas {
+                display: none !important;
+            }
+            
+            .hero-3d {
+                opacity: 0.3;
+            }
+
+            .hero-name {
+                animation: none;
+                border-right: none;
+                width: auto;
+            }
+        }
+
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            :root {
+                --color-primary: #00ffff;
+                --color-bg: #000000;
+                --color-text: #ffffff;
+                --color-surface: #111111;
+            }
+        }
+
+        /* Focus styles for keyboard navigation */
+        *:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        /* Print styles */
+        @media print {
+            .header,
+            .hero-bg,
+            .cursor,
+            .cursor-follower,
+            .confetti-canvas,
+            .loading-screen {
+                display: none;
+            }
+            
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .hero {
+                min-height: auto;
+                padding: var(--space-8) 0;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <!-- Enhanced Loading Screen -->
-    <div class="loading-screen" id="loadingScreen" role="dialog" aria-modal="true" aria-labelledby="loading-title">
+    <!-- ====== SKIP LINKS ====== -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <a href="#nav" class="skip-link">Skip to navigation</a>
+    
+    <!-- ====== LOADING SCREEN ====== -->
+    <div id="loadingScreen" class="loading-screen" aria-live="polite" aria-label="Loading portfolio">
         <div class="loading-content">
-            <div class="loading-logo loader__logo" id="loadingLogo">
+            <div class="loading-logo">
                 <span>BD</span>
-                <canvas id="sparkleCanvas" class="sparkle-canvas"></canvas>
             </div>
-            <div class="loading-text loader__text" id="loadingText" aria-live="polite">
-                <span id="loading-title">Loading Portfolio</span><span class="dots" aria-hidden="true">...</span>
+            <div class="loading-text">Loading Portfolio...</div>
+            <div class="loading-progress">
+                <div class="loading-bar" id="loadingBar"></div>
             </div>
-            <div class="loading-bar loader__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Loading progress">
-                <div class="loading-progress loader__progress" id="loadingProgress"></div>
-            </div>
-            <div class="loading-percentage" id="loadingPercentage" aria-live="polite">0%</div>
         </div>
     </div>
 
-    <!-- Custom Cursor -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-follower" id="cursorFollower"></div>
+    <!-- ====== CUSTOM CURSOR ====== -->
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+    <div class="cursor-follower" id="cursorFollower" aria-hidden="true"></div>
 
-    <!-- Particles Background -->
-    <div id="particles" aria-hidden="true"></div>
+    <!-- ====== CONFETTI CANVAS ====== -->
+    <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
 
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text" id="navBrand">BD</span>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link" data-section="home">Home</a></li>
-                <li><a href="#about" class="nav-link" data-section="about">About</a></li>
-                <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
-                <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
-                <li><a href="#resume" class="nav-link" data-section="resume">Resume</a></li>
-                <li><a href="#timeline" class="nav-link" data-section="timeline">Journey</a></li>
-                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
-            </ul>
-            <div class="nav-toggle">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
-                    <i class="fas fa-moon" aria-hidden="true"></i>
-                </button>
-                <div class="hamburger" id="hamburger" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+    <!-- ====== HEADER & NAVIGATION ====== -->
+    <header class="header">
+        <nav id="nav" class="nav" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="#home" class="brand-link" aria-label="Bhuvanesh D - Home">
+                        <span class="brand-text">BD</span>
+                    </a>
                 </div>
-            </div>
-            <!-- Active nav indicator -->
-            <div class="nav-indicator" id="navIndicator" aria-hidden="true"></div>
-        </div>
-    </nav>
-
-    <!-- Page transition overlay -->
-    <div class="page-transition" id="pageTransition" aria-hidden="true"></div>
-
-    <main id="main">
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-content container">
-                <div class="hero-text">
-                    <h1 class="hero-name" id="heroName">
-                        <span class="letter">B</span>
-                        <span class="letter">h</span>
-                        <span class="letter">u</span>
-                        <span class="letter">v</span>
-                        <span class="letter">a</span>
-                        <span class="letter">n</span>
-                        <span class="letter">e</span>
-                        <span class="letter">s</span>
-                        <span class="letter">h</span>
-                        <span class="letter"> </span>
-                        <span class="letter">D</span>
-                    </h1>
-                    <div class="hero-roles" aria-live="polite" aria-label="Current roles">
-                        <div class="role-text" id="roleText">Java Developer</div>
-                    </div>
-                    <p class="hero-description">
-                        Building innovative solutions with clean code & scalable architecture. 
-                        Passionate developer with a vision for innovation.
-                    </p>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="4">0</span>
-                            <span class="stat-label">Years Experience</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="20">0</span>
-                            <span class="stat-label">Projects</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="10">0</span>
-                            <span class="stat-label">Skills</span>
-                        </div>
-                    </div>
-                    <div class="hero-actions">
-                        <button class="btn btn--primary resume-download-btn" onclick="downloadResume()">
-                            <i class="fas fa-download" aria-hidden="true"></i>
-                            Download Resume
-                        </button>
-                        <a href="#contact" class="btn btn--secondary" data-scroll="contact">Get In Touch</a>
-                    </div>
+                
+                <ul class="nav-menu" id="navMenu" role="menubar">
+                    <li role="none">
+                        <a href="#home" class="nav-link active" data-section="home" role="menuitem">
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="#resume" class="nav-link" data-section="resume" role="menuitem">
+                            <span>Resume</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="#about" class="nav-link" data-section="about" role="menuitem">
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="#journey" class="nav-link" data-section="journey" role="menuitem">
+                            <span>Journey</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="#skills" class="nav-link" data-section="skills" role="menuitem">
+                            <span>Skills</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="#projects" class="nav-link" data-section="projects" role="menuitem">
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="#contact" class="nav-link" data-section="contact" role="menuitem">
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="nav-controls">
+                    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Switch theme">
+                        <i class="fas fa-sun" aria-hidden="true"></i>
+                    </button>
+                    
+                    <button id="menuButton" class="menu-button" aria-label="Toggle menu" aria-expanded="false">
+                        <span class="menu-icon" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </button>
                 </div>
-                <div class="hero-visual">
-                    <div class="floating-card" data-parallax="0.05">
-                        <div class="card-content">
-                            <i class="fab fa-java" aria-hidden="true"></i>
-                            <span>Java Expert</span>
-                        </div>
-                    </div>
-                    <div class="floating-card" data-parallax="0.08">
-                        <div class="card-content">
-                            <i class="fab fa-react" aria-hidden="true"></i>
-                            <span>React Developer</span>
-                        </div>
-                    </div>
-                    <div class="floating-card" data-parallax="0.06">
-                        <div class="card-content">
-                            <i class="fas fa-mobile-alt" aria-hidden="true"></i>
-                            <span>Flutter Apps</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="scroll-indicator" aria-hidden="true">
-                    <div class="scroll-arrow"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="about">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">About Me</h2>
-                    <p class="section-subtitle">Proficiency across the full development stack</p>
-                </div>
-                <div class="about-content">
-                    <div class="about-image-container">
-                        <div class="about-image">
-                            <img src="images\k1.jpg" alt="Bhuvanesh D - Professional photo" class="profile-image" loading="lazy">
-                            <div class="image-overlay">
-                                <div class="overlay-content">
+                
+                <!-- ====== MOBILE MENU ====== -->
+                <div id="mobileMenu" class="mobile-menu" role="menu" aria-hidden="true">
+                    <div class="mobile-menu-content">
+                        <ul class="mobile-nav-list" role="none">
+                            <li role="none">
+                                <a href="#home" class="mobile-nav-link" role="menuitem">
+                                    <i class="fas fa-home" aria-hidden="true"></i>
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li role="none">
+                                <a href="#resume" class="mobile-nav-link" role="menuitem">
+                                    <i class="fas fa-file-alt" aria-hidden="true"></i>
+                                    <span>Resume</span>
+                                </a>
+                            </li>
+                            <li role="none">
+                                <a href="#about" class="mobile-nav-link" role="menuitem">
+                                    <i class="fas fa-user" aria-hidden="true"></i>
+                                    <span>About</span>
+                                </a>
+                            </li>
+                            <li role="none">
+                                <a href="#journey" class="mobile-nav-link" role="menuitem">
+                                    <i class="fas fa-road" aria-hidden="true"></i>
+                                    <span>Journey</span>
+                                </a>
+                            </li>
+                            <li role="none">
+                                <a href="#skills" class="mobile-nav-link" role="menuitem">
                                     <i class="fas fa-code" aria-hidden="true"></i>
-                                    <span>Full Stack Developer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-text">
-                        <p class="about-bio">
-                            Final-year B.Tech (IT) student with a strong foundation in Java and working knowledge of Python, C, React, Flutter, and AI. Passionate about problem-solving and continuous learning. Eager to apply technical skills in real-world projects and grow as a software developer in a dynamic, innovation-driven environment.
-                        </p>
-                        <div class="about-details">
-                            <div class="detail-item">
-                                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
-                                <div>
-                                    <strong>Education</strong>
-                                    <span>B.Tech IT, Kalasalingam University (2022-2026)</span>
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                                <div>
-                                    <strong>Location</strong>
-                                    <span>Tamil Nadu, India</span>
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-envelope" aria-hidden="true"></i>
-                                <div>
-                                    <strong>Email</strong>
-                                    <span>dbhuvanesh210@gmail.com</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Certificates Accordion -->
-                        <div class="certificates-section">
-                            <h3>Certifications</h3>
-                            <div class="accordion" id="certificatesAccordion">
-                                <div class="accordion-item" id="cert-encryptcon">
-                                    <button class="accordion-header" aria-expanded="false" aria-controls="cert-encryptcon-content">
-                                        <span>Encryptcon 24-Hr Hackathon Winner</span>
-                                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                                    </button>
-                                    <div class="accordion-content" id="cert-encryptcon-content" role="region" aria-labelledby="cert-encryptcon">
-                                        <p>Won the prestigious 24-hour hackathon focusing on encryption technologies and blockchain security implementations.</p>
-                                    </div>
-                                </div>
-                                <div class="accordion-item" id="cert-acm">
-                                    <button class="accordion-header" aria-expanded="false" aria-controls="cert-acm-content">
-                                        <span>Codex Cryptum - ACM Certification</span>
-                                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                                    </button>
-                                    <div class="accordion-content" id="cert-acm-content" role="region" aria-labelledby="cert-acm">
-                                        <p>Association for Computing Machinery certification in cryptographic algorithms and secure coding practices.</p>
-                                    </div>
-                                </div>
-                                <div class="accordion-item" id="cert-devops">
-                                    <button class="accordion-header" aria-expanded="false" aria-controls="cert-devops-content">
-                                        <span>DevOps Dojo - ITE</span>
-                                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                                    </button>
-                                    <div class="accordion-content" id="cert-devops-content" role="region" aria-labelledby="cert-devops">
-                                        <p>Comprehensive DevOps training covering CI/CD pipelines, containerization, and cloud deployment strategies.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                    <span>Skills</span>
+                                </a>
+                            </li>
+                            <li role="none">
+                                <a href="#projects" class="mobile-nav-link" role="menuitem">
+                                    <i class="fas fa-folder" aria-hidden="true"></i>
+                                    <span>Projects</span>
+                                </a>
+                            </li>
+                            <li role="none">
+                                <a href="#contact" class="mobile-nav-link" role="menuitem">
+                                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                                    <span>Contact</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
+        </nav>
+    </header>
 
-        <!-- Skills Section -->
-        <section id="skills" class="skills">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Skills & Expertise</h2>
-                    <p class="section-subtitle">Innovative solutions built with modern technologies</p>
+    <!-- ====== MAIN CONTENT ====== -->
+    <main id="main">
+        <!-- ====== SECTION: HERO ====== -->
+        <section id="home" class="hero" role="banner">
+            <!-- 3D Background -->
+            <div class="hero-bg">
+                <iframe id="hero3d" class="hero-3d" src="https://my.spline.design/untitled-7c0d9a9c8d0e5f2b4e2a2e7f2a1e1e1e" frameborder="0" width="100%" height="100%" loading="lazy"></iframe>
+                <canvas id="particlesCanvas" class="particles-canvas" aria-hidden="true"></canvas>
+            </div>
+            
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-greeting">
+                        <span class="greeting-text">Hello, I'm</span>
+                    </div>
+                    
+                    <h1 class="hero-name">
+                        <span class="name-text"><strong><em>BHUVANESH D</em></strong></span>
+                    </h1>
+                    
+                    <div class="hero-role">
+                        <span class="role-text" id="roleText">Full-Stack Developer</span>
+                    </div>
+                    
+                    <p class="hero-description">
+                        Building <strong>innovative solutions</strong> with clean code & scalable architecture. 
+                        Passionate developer with a vision for innovation and creating meaningful impact through technology.
+                    </p>
+                    
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-rocket" aria-hidden="true"></i>
+                            <span>View Projects</span>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                            <span>Contact Me</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="skills-categories">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-server" aria-hidden="true"></i> Backend Development</h3>
-                        <div class="skills-grid">
-                            <div class="skill-item" data-stars="5" tabindex="0">
-                                <div class="skill-header">
-                                    <span class="skill-name">Java</span>
-                                    <span class="skill-percentage">90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="90"></div>
-                                </div>
-                                <div class="skill-description">Strong foundation with Spring Boot framework</div>
-                                <div class="skill-stars" aria-hidden="true">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <div class="skill-tooltip" role="tooltip" aria-hidden="true">Enterprise-level Java development</div>
-                            </div>
-                            <div class="skill-item" data-stars="4" tabindex="0">
-                                <div class="skill-header">
-                                    <span class="skill-name">Python</span>
-                                    <span class="skill-percentage">75%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="75"></div>
-                                </div>
-                                <div class="skill-description">Data science and web development</div>
-                                <div class="skill-stars" aria-hidden="true">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <div class="skill-tooltip" role="tooltip" aria-hidden="true">AI/ML and backend services</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-paint-brush" aria-hidden="true"></i> Frontend Development</h3>
-                        <div class="skills-grid">
-                            <div class="skill-item" data-stars="4" tabindex="0">
-                                <div class="skill-header">
-                                    <span class="skill-name">React</span>
-                                    <span class="skill-percentage">80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="80"></div>
-                                </div>
-                                <div class="skill-description">Modern UI development with hooks</div>
-                                <div class="skill-stars" aria-hidden="true">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <div class="skill-tooltip" role="tooltip" aria-hidden="true">Component-based architecture</div>
-                            </div>
-                            <div class="skill-item" data-stars="4" tabindex="0">
-                                <div class="skill-header">
-                                    <span class="skill-name">JavaScript</span>
-                                    <span class="skill-percentage">75%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="75"></div>
-                                </div>
-                                <div class="skill-description">ES6+ and modern web APIs</div>
-                                <div class="skill-stars" aria-hidden="true">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <div class="skill-tooltip" role="tooltip" aria-hidden="true">Modern JavaScript frameworks</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-mobile-alt" aria-hidden="true"></i> Mobile & Database</h3>
-                        <div class="skills-grid">
-                            <div class="skill-item" data-stars="4" tabindex="0">
-                                <div class="skill-header">
-                                    <span class="skill-name">Flutter</span>
-                                    <span class="skill-percentage">70%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="70"></div>
-                                </div>
-                                <div class="skill-description">Cross-platform mobile apps</div>
-                                <div class="skill-stars" aria-hidden="true">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <div class="skill-tooltip" role="tooltip" aria-hidden="true">iOS and Android development</div>
-                            </div>
-                            <div class="skill-item" data-stars="4" tabindex="0">
-                                <div class="skill-header">
-                                    <span class="skill-name">MySQL</span>
-                                    <span class="skill-percentage">80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="80"></div>
-                                </div>
-                                <div class="skill-description">Relational database design</div>
-                                <div class="skill-stars" aria-hidden="true">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <div class="skill-tooltip" role="tooltip" aria-hidden="true">Database optimization and design</div>
-                            </div>
-                        </div>
+                
+                <div class="hero-visual">
+                    <div class="hero-image-container">
+                        <img src="k1.jpg" alt="Bhuvanesh D - Full Stack Developer" class="hero-image" loading="eager" decoding="async" fetchpriority="high">
+                        <div class="hero-image-glow"></div>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="projects">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Featured Projects</h2>
-                    <p class="section-subtitle">Comprehensive overview of my work</p>
-                </div>
-                <div class="projects-grid" id="projectsGrid">
-                    <!-- Projects will be loaded dynamically -->
-                </div>
+            
+            <div class="scroll-indicator" aria-hidden="true">
+                <div class="scroll-arrow"></div>
             </div>
         </section>
 
-        <!-- Resume Section -->
-        <section id="resume" class="resume-section">
+        <!-- ====== SECTION: RESUME ====== -->
+        <section id="resume" class="resume">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Professional Profile</h2>
+                    <h2 class="section-title">Professional Resume</h2>
                     <p class="section-subtitle">Download my complete professional profile</p>
                 </div>
+                
                 <div class="resume-content">
                     <div class="resume-preview">
-                        <div class="resume-mockup" onclick="downloadResume()" role="button" tabindex="0" aria-label="Download resume">
+                        <div class="resume-mockup">
                             <div class="resume-header">
-                                <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                                <i class="fas fa-file-alt" aria-hidden="true"></i>
                             </div>
                             <div class="resume-body">
                                 <div class="resume-lines">
@@ -393,52 +2268,333 @@
                                     <div class="line short"></div>
                                     <div class="line medium"></div>
                                     <div class="line long"></div>
+                                    <div class="line short"></div>
+                                    <div class="line medium"></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="resume-info">
-                        <h3>Professional Resume</h3>
-                        <p>Comprehensive overview of my skills, experience, projects, and achievements. Updated regularly with latest accomplishments and certifications.</p>
+                        
                         <ul class="resume-highlights">
                             <li><i class="fas fa-check" aria-hidden="true"></i> 4+ years of development experience</li>
                             <li><i class="fas fa-check" aria-hidden="true"></i> 20+ successful projects completed</li>
                             <li><i class="fas fa-check" aria-hidden="true"></i> Full-stack development expertise</li>
                             <li><i class="fas fa-check" aria-hidden="true"></i> Modern technology stack proficiency</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Hackathon winner & certified developer</li>
                         </ul>
-                        <button class="btn btn--primary resume-download-btn" onclick="downloadResume()">
+                        
+                        <a href="Bhuvanesh_SoftwareEngg_leet-code_resume.pdf" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
                             <i class="fas fa-download" aria-hidden="true"></i>
-                            Download Resume
-                        </button>
-                        <div class="download-success-message" id="downloadSuccess">
-                            <i class="fas fa-check-circle" aria-hidden="true"></i>
-                            <span>Resume downloaded successfully!</span>
+                            <span>Download Resume</span>
+                        </a>
+                    </div>
+                    
+                    <div class="resume-details">
+                        <div class="contact-info">
+                            <div class="contact-info-item">
+                                <i class="fas fa-user" aria-hidden="true"></i>
+                                <span><strong>Bhuvanesh D</strong></span>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <span>Ramanathapuram, Tamil Nadu, India</span>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                <a href="mailto:dbhuvanesh210@gmail.com">dbhuvanesh210@gmail.com</a>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="fas fa-phone" aria-hidden="true"></i>
+                                <a href="tel:+918925597374">+91 8925597374</a>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i>
+                                <a href="https://www.linkedin.com/in/bhuvanesh-d-4a1642370" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="fab fa-github" aria-hidden="true"></i>
+                                <a href="https://github.com/bhuvanesh8399" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4>Education</h4>
+                            <p><strong>B.Tech Information Technology</strong><br>
+                            Kalasalingam University (2022-2026)<br>
+                            Specializing in Software Development and AI Technologies</p>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4>Technical Skills</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Java</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Flutter</span>
+                                <span class="skill-tag">Spring Boot</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">MySQL</span>
+                                <span class="skill-tag">MongoDB</span>
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">Git</span>
+                                <span class="skill-tag">AWS</span>
+                                <span class="skill-tag">Blockchain</span>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4>Key Achievements</h4>
+                            <ul class="achievements-list">
+                                <li class="achievement-item">
+                                    <i class="fas fa-trophy achievement-icon" aria-hidden="true"></i>
+                                    <span><strong>Encryptcon 24-Hr Hackathon Winner</strong> - Blockchain & Encryption Technologies</span>
+                                </li>
+                                <li class="achievement-item">
+                                    <i class="fas fa-certificate achievement-icon" aria-hidden="true"></i>
+                                    <span><strong>ACM Certification</strong> - Cryptographic Algorithms and Secure Coding</span>
+                                </li>
+                                <li class="achievement-item">
+                                    <i class="fas fa-tools achievement-icon" aria-hidden="true"></i>
+                                    <span><strong>DevOps Dojo - ITE</strong> - CI/CD Pipelines and Containerization</span>
+                                </li>
+                                <li class="achievement-item">
+                                    <i class="fas fa-users achievement-icon" aria-hidden="true"></i>
+                                    <span><strong>Nature Club President</strong> - Leading Environmental Initiatives (2025-2026)</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Timeline Section -->
-        <section id="timeline" class="timeline-section">
+        <!-- ====== SECTION: ABOUT ====== -->
+        <section id="about" class="about">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">My Journey</h2>
-                    <p class="section-subtitle">Milestones and achievements</p>
+                    <h2 class="section-title">About Me</h2>
+                    <p class="section-subtitle">Passionate developer with a strong foundation in technology</p>
                 </div>
-                <div class="timeline" id="timeline">
-                    <!-- Timeline items will be loaded dynamically -->
+                
+                <div class="about-content">
+                    <div class="about-image-section">
+                        <div class="about-image-container">
+                            <img src="k1.jpg" alt="Bhuvanesh D" class="about-image" loading="lazy">
+                        </div>
+                        
+                        <div class="about-quick-facts">
+                            <div class="quick-facts-grid">
+                                <div class="fact-item">
+                                    <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                                    <span class="fact-label">Education:</span>
+                                    <span class="fact-value">B.Tech IT (2022-2026)</span>
+                                </div>
+                                <div class="fact-item">
+                                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                    <span class="fact-label">Location:</span>
+                                    <span class="fact-value">Tamil Nadu, India</span>
+                                </div>
+                                <div class="fact-item">
+                                    <i class="fas fa-university" aria-hidden="true"></i>
+                                    <span class="fact-label">University:</span>
+                                    <span class="fact-value">Kalasalingam University</span>
+                                </div>
+                                <div class="fact-item">
+                                    <i class="fas fa-trophy" aria-hidden="true"></i>
+                                    <span class="fact-label">Role:</span>
+                                    <span class="fact-value">Nature Club President</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-details">
+                        <div class="about-intro">
+                            <p>I'm a final-year B.Tech (IT) student at Kalasalingam University with a <strong>strong foundation in Java</strong> and working knowledge of Python, C, React, Flutter, and AI. I'm passionate about problem-solving and continuous learning, always eager to apply technical skills in real-world projects.</p>
+                        </div>
+                        
+                        <div class="about-cards">
+                            <div class="about-card">
+                                <div class="card-header">
+                                    <div class="card-icon">
+                                        <i class="fas fa-code" aria-hidden="true"></i>
+                                    </div>
+                                    <h3 class="card-title">Technical Expertise</h3>
+                                </div>
+                                <div class="card-content">
+                                    <p>Specialized in full-stack development with expertise in enterprise technologies and modern frameworks. Strong focus on clean code architecture and scalable solutions.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="about-card">
+                                <div class="card-header">
+                                    <div class="card-icon">
+                                        <i class="fas fa-trophy" aria-hidden="true"></i>
+                                    </div>
+                                    <h3 class="card-title">Achievements & Certifications</h3>
+                                </div>
+                                <div class="card-content">
+                                    <ul class="achievements-list">
+                                        <li class="achievement-item">
+                                            <i class="fas fa-medal achievement-icon" aria-hidden="true"></i>
+                                            <span><strong>Encryptcon 24-Hr Hackathon Winner</strong> - Blockchain & encryption technologies</span>
+                                        </li>
+                                        <li class="achievement-item">
+                                            <i class="fas fa-certificate achievement-icon" aria-hidden="true"></i>
+                                            <span><strong>ACM Certification</strong> - Cryptographic algorithms and secure coding</span>
+                                        </li>
+                                        <li class="achievement-item">
+                                            <i class="fas fa-tools achievement-icon" aria-hidden="true"></i>
+                                            <span><strong>DevOps Dojo - ITE</strong> - CI/CD pipelines and containerization</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="about-card">
+                                <div class="card-header">
+                                    <div class="card-icon">
+                                        <i class="fas fa-users" aria-hidden="true"></i>
+                                    </div>
+                                    <h3 class="card-title">Leadership & Impact</h3>
+                                </div>
+                                <div class="card-content">
+                                    <p><strong>President of Nature Club (2025-2026)</strong> - Leading environmental initiatives and organizing campus-wide awareness programs.</p>
+                                    <ul class="achievements-list">
+                                        <li class="achievement-item">
+                                            <i class="fas fa-leaf achievement-icon" aria-hidden="true"></i>
+                                            <span>Organized eco-friendly initiatives and awareness drives</span>
+                                        </li>
+                                        <li class="achievement-item">
+                                            <i class="fas fa-handshake achievement-icon" aria-hidden="true"></i>
+                                            <span>Built partnerships with local environmental organizations</span>
+                                        </li>
+                                        <li class="achievement-item">
+                                            <i class="fas fa-chart-line achievement-icon" aria-hidden="true"></i>
+                                            <span>Coordinated cross-functional teams and fundraising activities</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="about-card">
+                                <div class="card-header">
+                                    <div class="card-icon">
+                                        <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                                    </div>
+                                    <h3 class="card-title">Vision & Goals</h3>
+                                </div>
+                                <div class="card-content">
+                                    <p>I'm passionate about leveraging technology to solve real-world problems and create meaningful impact. Currently focusing on <strong>AI and Blockchain technologies</strong> while building innovative solutions.</p>
+                                    <ul class="achievements-list">
+                                        <li class="achievement-item">
+                                            <i class="fas fa-brain achievement-icon" aria-hidden="true"></i>
+                                            <span>Exploring AI-powered solutions for security and automation</span>
+                                        </li>
+                                        <li class="achievement-item">
+                                            <i class="fas fa-link achievement-icon" aria-hidden="true"></i>
+                                            <span>Implementing blockchain for secure data exchange</span>
+                                        </li>
+                                        <li class="achievement-item">
+                                            <i class="fas fa-rocket achievement-icon" aria-hidden="true"></i>
+                                            <span>Building scalable full-stack applications</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- ====== SECTION: JOURNEY/TIMELINE ====== -->
+        <section id="journey" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">My Journey</h2>
+                    <p class="section-subtitle">From student to developer</p>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item" data-year="2022">
+                        <div class="timeline-icon">
+                            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Started B.Tech IT</h3>
+                            <p>Began my journey at Kalasalingam University, diving into the world of Information Technology and discovering my passion for software development.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-year="2023">
+                        <div class="timeline-icon">
+                            <i class="fas fa-code" aria-hidden="true"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>First Major Project</h3>
+                            <p>Built a dynamic Weather App using Node.js, mastering API integration and backend development. This project marked my transition from theory to practical application.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-year="2024">
+                        <div class="timeline-icon">
+                            <i class="fas fa-trophy" aria-hidden="true"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Hackathon Victory</h3>
+                            <p>Won the prestigious Encryptcon 24-Hr Hackathon, showcasing skills in encryption technologies and blockchain. This achievement validated my technical expertise.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-year="2025">
+                        <div class="timeline-icon">
+                            <i class="fas fa-rocket" aria-hidden="true"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Advanced Focus & Leadership</h3>
+                            <p>Currently specializing in AI and Blockchain technologies while serving as Nature Club President, combining technical innovation with environmental leadership.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== SECTION: SKILLS ====== -->
+        <section id="skills" class="skills">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Skills & Expertise</h2>
+                    <p class="section-subtitle">Technologies I work with</p>
+                </div>
+                
+                <div class="skills-grid" id="skillsGrid">
+                    <!-- Skills will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== SECTION: PROJECTS ====== -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-subtitle">Showcasing my best work</p>
+                </div>
+                
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Projects will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== SECTION: CONTACT ====== -->
         <section id="contact" class="contact">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">Get In Touch</h2>
-                    <p class="section-subtitle">Ready to bring your ideas to life</p>
+                    <p class="section-subtitle">Let's build something amazing together</p>
                 </div>
+                
                 <div class="contact-content">
                     <div class="contact-info">
                         <div class="contact-item">
@@ -446,76 +2602,1703 @@
                                 <i class="fas fa-envelope" aria-hidden="true"></i>
                             </div>
                             <div class="contact-details">
-                                <h4>Email</h4>
+                                <h3>Email</h3>
                                 <a href="mailto:dbhuvanesh210@gmail.com">dbhuvanesh210@gmail.com</a>
                             </div>
                         </div>
+                        
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-phone" aria-hidden="true"></i>
                             </div>
                             <div class="contact-details">
-                                <h4>Phone</h4>
+                                <h3>Phone</h3>
                                 <a href="tel:+918925597374">+91 8925597374</a>
                             </div>
                         </div>
+                        
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fab fa-linkedin" aria-hidden="true"></i>
                             </div>
                             <div class="contact-details">
-                                <h4>LinkedIn</h4>
-                                <a href="https://www.linkedin.com/in/bhuvanesh-d-4a1642370" target="_blank" rel="noopener">Connect with me</a>
+                                <h3>LinkedIn</h3>
+                                <a href="https://www.linkedin.com/in/bhuvanesh-d-4a1642370" target="_blank" rel="noopener noreferrer">Connect with me</a>
                             </div>
                         </div>
+                        
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fab fa-github" aria-hidden="true"></i>
                             </div>
                             <div class="contact-details">
-                                <h4>GitHub</h4>
-                                <a href="https://github.com/bhuvanesh8399" target="_blank" rel="noopener">View my projects</a>
+                                <h3>GitHub</h3>
+                                <a href="https://github.com/bhuvanesh8399" target="_blank" rel="noopener noreferrer">@bhuvanesh8399</a>
                             </div>
                         </div>
                     </div>
-                    <form class="contact-form" id="contactForm" novalidate>
+                    
+                    <form id="contactForm" class="contact-form" novalidate>
                         <div class="form-group">
                             <label for="name" class="form-label">Name *</label>
-                            <input type="text" id="name" name="name" class="form-control" required aria-describedby="name-error">
-                            <span class="error-message" id="name-error" role="alert"></span>
+                            <input type="text" id="name" name="name" class="form-input" required aria-describedby="name-error">
+                            <span class="form-error" id="name-error" role="alert"></span>
                         </div>
+                        
                         <div class="form-group">
                             <label for="email" class="form-label">Email *</label>
-                            <input type="email" id="email" name="email" class="form-control" required aria-describedby="email-error">
-                            <span class="error-message" id="email-error" role="alert"></span>
+                            <input type="email" id="email" name="email" class="form-input" required aria-describedby="email-error">
+                            <span class="form-error" id="email-error" role="alert"></span>
                         </div>
-                        <div class="form-group">
-                            <label for="subject" class="form-label">Subject *</label>
-                            <input type="text" id="subject" name="subject" class="form-control" required aria-describedby="subject-error">
-                            <span class="error-message" id="subject-error" role="alert"></span>
-                        </div>
+                        
                         <div class="form-group">
                             <label for="message" class="form-label">Message *</label>
-                            <textarea id="message" name="message" class="form-control" rows="6" required aria-describedby="message-error"></textarea>
-                            <span class="error-message" id="message-error" role="alert"></span>
+                            <textarea id="message" name="message" class="form-input form-textarea" rows="5" required aria-describedby="message-error"></textarea>
+                            <span class="form-error" id="message-error" role="alert"></span>
                         </div>
-                        <button type="submit" class="btn btn--primary btn--full-width">
-                            <span class="btn-text">Send Message</span>
+                        
+                        <button type="submit" class="btn btn-primary btn-full" id="submitButton">
                             <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                            <span>Send Message</span>
                         </button>
+                        
+                        <div id="formStatus" class="form-status" role="alert" aria-live="polite"></div>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Back to Top Rocket -->
-    <div class="back-to-top" id="backToTop" aria-label="Back to top" role="button" tabindex="0">
-        <div class="rocket" id="rocket">
-            <i class="fas fa-rocket" aria-hidden="true"></i>
+    <!-- ====== FOOTER ====== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Bhuvanesh D. Made with <span class="heart" aria-label="love">❤️</span> and lots of ☕</p>
+                <div class="footer-links">
+                    <a href="#home" class="footer-link">Back to Top</a>
+                </div>
+            </div>
         </div>
-    </div>
+    </footer>
 
-    <script src="app.js"></script>
+    <!-- ====== EMBEDDED JAVASCRIPT ====== -->
+    <script>
+        /*!
+         * Portfolio App - Vanilla JavaScript
+         * Author: Bhuvanesh D
+         * Version: 2.0.0
+         */
+
+        'use strict';
+
+        // ====== EMAILJS CONFIGURATION ====== 
+        const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
+        const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID"; 
+        const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+
+        // ====== GLOBAL VARIABLES ======
+        const APP = {
+            isLoaded: false,
+            currentTheme: 'dark',
+            mobileMenuOpen: false,
+            firstVisit: !localStorage.getItem('portfolio-visited'),
+            roles: [
+                'Full-Stack Developer',
+                'Java Specialist', 
+                'React Developer',
+                'Flutter Expert',
+                'AI Enthusiast',
+                'Problem Solver'
+            ],
+            currentRoleIndex: 0,
+            
+            // Portfolio Data
+            skills: [
+                { name: 'Java', level: 90, icon: 'fab fa-java', description: 'Enterprise-grade applications with Spring Boot' },
+                { name: 'Python', level: 75, icon: 'fab fa-python', description: 'Data science and web development' },
+                { name: 'React', level: 80, icon: 'fab fa-react', description: 'Modern UI development with hooks' },
+                { name: 'Flutter', level: 70, icon: 'fas fa-mobile-alt', description: 'Cross-platform mobile apps' },
+                { name: 'Node.js', level: 75, icon: 'fab fa-node-js', description: 'Scalable backend services' },
+                { name: 'MySQL', level: 80, icon: 'fas fa-database', description: 'Relational database design' },
+                { name: 'MongoDB', level: 70, icon: 'fas fa-leaf', description: 'NoSQL document database' },
+                { name: 'Docker', level: 60, icon: 'fab fa-docker', description: 'Containerization and deployment' },
+                { name: 'Git', level: 85, icon: 'fab fa-git-alt', description: 'Version control and collaboration' },
+                { name: 'JavaScript', level: 85, icon: 'fab fa-js-square', description: 'Modern ES6+ development' }
+            ],
+            
+            projects: [
+                {
+                    title: 'Encrypted Exchange',
+                    category: 'Full Stack + Blockchain',
+                    description: 'Secure data sharing platform using Homomorphic Encryption, ZKPs, and Blockchain. Built with React, Express.js, MongoDB, and IPFS with AI-powered security modules.',
+                    tech: ['Blockchain', 'React', 'Express.js', 'MongoDB', 'IPFS', 'AI'],
+                    github: 'https://github.com/bhuvanesh8399',
+                    demo: '#',
+                    image: null
+                },
+                {
+                    title: 'TravelMate - AI Travel Planner',
+                    category: 'Full Stack + AI',
+                    description: 'Smart travel planning app with AI-powered destination recommendations, real-time weather integration, and Google Maps route optimization.',
+                    tech: ['React', 'Node.js', 'AI/ML', 'Google Maps API', 'Weather API'],
+                    github: 'https://github.com/bhuvanesh8399',
+                    demo: '#',
+                    image: null
+                },
+                {
+                    title: 'Weather App',
+                    category: 'Backend Development',
+                    description: 'Dynamic weather application with Node.js backend for real-time API integration and responsive design.',
+                    tech: ['Node.js', 'Express', 'Weather API', 'JavaScript'],
+                    github: 'https://github.com/bhuvanesh8399',
+                    demo: '#',
+                    image: null
+                },
+                {
+                    title: 'Event Registration App',
+                    category: 'Mobile Development',
+                    description: 'Cross-platform mobile app built with Flutter and Firebase for event management with real-time authentication.',
+                    tech: ['Flutter', 'Dart', 'Firebase', 'Mobile UI'],
+                    github: 'https://github.com/bhuvanesh8399',
+                    demo: '#',
+                    image: null
+                }
+            ]
+        };
+
+        // ====== UTILITY FUNCTIONS ======
+        const Utils = {
+            // DOM Selection
+            $(selector) {
+                return document.querySelector(selector);
+            },
+            
+            $$(selector) {
+                return document.querySelectorAll(selector);
+            },
+            
+            // Debounce function
+            debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            },
+            
+            // Throttle function
+            throttle(func, limit) {
+                let inThrottle;
+                return function(...args) {
+                    if (!inThrottle) {
+                        func.apply(this, args);
+                        inThrottle = true;
+                        setTimeout(() => inThrottle = false, limit);
+                    }
+                };
+            },
+            
+            // Email validation
+            isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            },
+            
+            // Generate stars for skill rating
+            generateStars(level) {
+                const stars = Math.round(level / 20);
+                let starsHTML = '';
+                for (let i = 1; i <= 5; i++) {
+                    starsHTML += i <= stars ? 
+                        '<i class="fas fa-star skill-star"></i>' : 
+                        '<i class="far fa-star skill-star"></i>';
+                }
+                return starsHTML;
+            },
+            
+            // Animate number counting
+            animateNumber(element, target, duration = 1000) {
+                const start = 0;
+                const increment = target / (duration / 16);
+                let current = start;
+                
+                const counter = setInterval(() => {
+                    current += increment;
+                    element.textContent = Math.floor(current);
+                    
+                    if (current >= target) {
+                        element.textContent = target;
+                        clearInterval(counter);
+                    }
+                }, 16);
+            }
+        };
+
+        // ====== LOADING SCREEN ======
+        const LoadingScreen = {
+            element: null,
+            progressBar: null,
+            
+            init() {
+                this.element = Utils.$('#loadingScreen');
+                this.progressBar = Utils.$('#loadingBar');
+                
+                if (!this.element) return;
+                
+                this.show();
+                this.simulateLoading();
+            },
+            
+            show() {
+                this.element.classList.remove('hidden');
+            },
+            
+            hide() {
+                this.element.classList.add('hidden');
+                setTimeout(() => {
+                    if (this.element) {
+                        this.element.remove();
+                    }
+                }, 500);
+            },
+            
+            simulateLoading() {
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += Math.random() * 15;
+                    if (progress >= 100) {
+                        progress = 100;
+                        clearInterval(interval);
+                        setTimeout(() => this.hide(), 500);
+                    }
+                    
+                    if (this.progressBar) {
+                        this.progressBar.style.width = `${progress}%`;
+                    }
+                }, 200);
+            }
+        };
+
+        // ====== CUSTOM CURSOR ======
+        const CustomCursor = {
+            cursor: null,
+            follower: null,
+            
+            init() {
+                if (window.innerWidth < 768 || 'ontouchstart' in window) return;
+                
+                this.cursor = Utils.$('#cursor');
+                this.follower = Utils.$('#cursorFollower');
+                
+                if (!this.cursor || !this.follower) return;
+                
+                this.bindEvents();
+            },
+            
+            bindEvents() {
+                let mouseX = 0, mouseY = 0;
+                let followerX = 0, followerY = 0;
+                
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                    
+                    this.cursor.style.left = mouseX + 'px';
+                    this.cursor.style.top = mouseY + 'px';
+                });
+                
+                const animateFollower = () => {
+                    const speed = 0.15;
+                    followerX += (mouseX - followerX) * speed;
+                    followerY += (mouseY - followerY) * speed;
+                    
+                    this.follower.style.left = followerX + 'px';
+                    this.follower.style.top = followerY + 'px';
+                    
+                    requestAnimationFrame(animateFollower);
+                };
+                
+                animateFollower();
+                
+                // Interactive elements
+                const interactiveElements = Utils.$$('a, button, [role="button"], .skill-card, .project-card');
+                
+                interactiveElements.forEach(element => {
+                    element.addEventListener('mouseenter', () => {
+                        this.cursor.style.transform = 'scale(2)';
+                        this.follower.style.transform = 'scale(1.5)';
+                    });
+                    
+                    element.addEventListener('mouseleave', () => {
+                        this.cursor.style.transform = 'scale(1)';
+                        this.follower.style.transform = 'scale(1)';
+                    });
+                });
+            }
+        };
+
+        // ====== CONFETTI ANIMATION ======
+        const Confetti = {
+            canvas: null,
+            ctx: null,
+            particles: [],
+            
+            init() {
+                this.canvas = Utils.$('#confettiCanvas');
+                if (!this.canvas) return;
+                
+                this.ctx = this.canvas.getContext('2d');
+                this.resizeCanvas();
+                
+                window.addEventListener('resize', Utils.debounce(() => this.resizeCanvas(), 250));
+            },
+            
+            resizeCanvas() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+            },
+            
+            createParticle(x, y) {
+                return {
+                    x: x || Math.random() * this.canvas.width,
+                    y: y || -10,
+                    vx: (Math.random() - 0.5) * 6,
+                    vy: Math.random() * 3 + 2,
+                    color: this.getRandomColor(),
+                    size: Math.random() * 4 + 2,
+                    gravity: 0.2,
+                    life: 100
+                };
+            },
+            
+            getRandomColor() {
+                const colors = ['#00d4ff', '#ff6b6b', '#4ecdc4', '#ffe66d', '#a8e6cf'];
+                return colors[Math.floor(Math.random() * colors.length)];
+            },
+            
+            start() {
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+                
+                this.canvas.classList.add('active');
+                
+                // Create particles
+                for (let i = 0; i < 50; i++) {
+                    this.particles.push(this.createParticle());
+                }
+                
+                this.animate();
+                
+                setTimeout(() => this.stop(), 3000);
+            },
+            
+            animate() {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                
+                for (let i = this.particles.length - 1; i >= 0; i--) {
+                    const particle = this.particles[i];
+                    
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+                    particle.vy += particle.gravity;
+                    particle.life--;
+                    
+                    if (particle.life <= 0 || particle.y > this.canvas.height) {
+                        this.particles.splice(i, 1);
+                        continue;
+                    }
+                    
+                    this.ctx.globalAlpha = particle.life / 100;
+                    this.ctx.fillStyle = particle.color;
+                    this.ctx.fillRect(particle.x, particle.y, particle.size, particle.size);
+                }
+                
+                if (this.particles.length > 0) {
+                    requestAnimationFrame(() => this.animate());
+                }
+            },
+            
+            stop() {
+                this.canvas.classList.remove('active');
+                this.particles = [];
+            }
+        };
+
+        // ====== THEME TOGGLE ======
+        const ThemeToggle = {
+            button: null,
+            
+            init() {
+                this.button = Utils.$('#themeToggle');
+                if (!this.button) return;
+                
+                this.loadTheme();
+                this.bindEvents();
+            },
+            
+            loadTheme() {
+                const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
+                APP.currentTheme = savedTheme;
+                document.documentElement.setAttribute('data-theme', savedTheme);
+                this.updateIcon();
+            },
+            
+            bindEvents() {
+                this.button.addEventListener('click', () => this.toggle());
+                
+                // Listen for system theme changes
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                    if (!localStorage.getItem('portfolio-theme')) {
+                        APP.currentTheme = e.matches ? 'dark' : 'light';
+                        document.documentElement.setAttribute('data-theme', APP.currentTheme);
+                        this.updateIcon();
+                    }
+                });
+            },
+            
+            toggle() {
+                APP.currentTheme = APP.currentTheme === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', APP.currentTheme);
+                localStorage.setItem('portfolio-theme', APP.currentTheme);
+                this.updateIcon();
+            },
+            
+            updateIcon() {
+                const icon = this.button.querySelector('i');
+                icon.className = APP.currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        };
+
+        // ====== NAVIGATION ======
+        const Navigation = {
+            nav: null,
+            menuButton: null,
+            mobileMenu: null,
+            navLinks: null,
+            
+            init() {
+                this.nav = Utils.$('#nav');
+                this.menuButton = Utils.$('#menuButton');
+                this.mobileMenu = Utils.$('#mobileMenu');
+                this.navLinks = Utils.$$('.nav-link, .mobile-nav-link');
+                
+                if (!this.nav) return;
+                
+                this.bindEvents();
+                this.updateActiveLink();
+            },
+            
+            bindEvents() {
+                // Mobile menu toggle
+                this.menuButton?.addEventListener('click', () => this.toggleMobileMenu());
+                
+                // Navigation links
+                this.navLinks.forEach(link => {
+                    link.addEventListener('click', (e) => this.handleNavClick(e));
+                });
+                
+                // Scroll detection
+                window.addEventListener('scroll', Utils.throttle(() => this.updateActiveLink(), 100));
+                
+                // Close mobile menu on escape
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && APP.mobileMenuOpen) {
+                        this.closeMobileMenu();
+                    }
+                });
+                
+                // Close mobile menu on outside click
+                document.addEventListener('click', (e) => {
+                    if (APP.mobileMenuOpen && !this.mobileMenu.contains(e.target) && !this.menuButton.contains(e.target)) {
+                        this.closeMobileMenu();
+                    }
+                });
+            },
+            
+            toggleMobileMenu() {
+                if (APP.mobileMenuOpen) {
+                    this.closeMobileMenu();
+                } else {
+                    this.openMobileMenu();
+                }
+            },
+            
+            openMobileMenu() {
+                APP.mobileMenuOpen = true;
+                this.mobileMenu.classList.add('active');
+                this.mobileMenu.setAttribute('aria-hidden', 'false');
+                this.menuButton.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+                
+                // Focus trap
+                const focusableElements = this.mobileMenu.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+                if (focusableElements.length > 0) {
+                    focusableElements[0].focus();
+                }
+            },
+            
+            closeMobileMenu() {
+                APP.mobileMenuOpen = false;
+                this.mobileMenu.classList.remove('active');
+                this.mobileMenu.setAttribute('aria-hidden', 'true');
+                this.menuButton.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                this.menuButton.focus();
+            },
+            
+            handleNavClick(e) {
+                e.preventDefault();
+                const targetId = e.target.closest('a').getAttribute('href').substring(1);
+                const targetSection = Utils.$(`#${targetId}`);
+                
+                if (targetSection) {
+                    if (APP.mobileMenuOpen) {
+                        this.closeMobileMenu();
+                    }
+                    
+                    this.scrollToSection(targetSection);
+                    this.updateActiveLink(targetId);
+                }
+            },
+            
+            scrollToSection(section) {
+                const headerOffset = 80;
+                const elementPosition = section.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            },
+            
+            updateActiveLink(activeSection) {
+                if (!activeSection) {
+                    // Auto-detect current section
+                    const sections = Utils.$$('section[id]');
+                    let currentSection = 'home';
+                    
+                    sections.forEach(section => {
+                        const rect = section.getBoundingClientRect();
+                        if (rect.top <= 150 && rect.bottom >= 150) {
+                            currentSection = section.id;
+                        }
+                    });
+                    
+                    activeSection = currentSection;
+                }
+                
+                // Update active states
+                Utils.$$('.nav-link').forEach(link => {
+                    const isActive = link.getAttribute('data-section') === activeSection;
+                    link.classList.toggle('active', isActive);
+                });
+            }
+        };
+
+        // ====== HERO SECTION ======
+        const HeroSection = {
+            roleText: null,
+            hero3d: null,
+            particlesCanvas: null,
+            
+            init() {
+                this.roleText = Utils.$('#roleText');
+                this.hero3d = Utils.$('#hero3d');
+                this.particlesCanvas = Utils.$('#particlesCanvas');
+                
+                this.initRoleRotation();
+                this.init3DBackground();
+                this.initParticles();
+            },
+            
+            initRoleRotation() {
+                if (!this.roleText) return;
+                
+                setInterval(() => {
+                    this.roleText.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        APP.currentRoleIndex = (APP.currentRoleIndex + 1) % APP.roles.length;
+                        this.roleText.textContent = APP.roles[APP.currentRoleIndex];
+                        this.roleText.style.opacity = '1';
+                    }, 300);
+                }, 3000);
+            },
+            
+            init3DBackground() {
+                if (!this.hero3d) return;
+                
+                // Fallback to particles if Spline doesn't load
+                this.hero3d.addEventListener('error', () => {
+                    this.hero3d.style.display = 'none';
+                    if (this.particlesCanvas) {
+                        this.particlesCanvas.style.display = 'block';
+                    }
+                });
+                
+                // Check if iframe loads properly
+                this.hero3d.addEventListener('load', () => {
+                    try {
+                        // Test if iframe content is accessible
+                        this.hero3d.contentWindow.location.href;
+                    } catch (e) {
+                        // Cross-origin or blocked, show particles instead
+                        this.hero3d.style.display = 'none';
+                        if (this.particlesCanvas) {
+                            this.particlesCanvas.style.display = 'block';
+                        }
+                    }
+                });
+            },
+            
+            initParticles() {
+                if (!this.particlesCanvas) return;
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+                
+                const ctx = this.particlesCanvas.getContext('2d');
+                const particles = [];
+                
+                const resizeCanvas = () => {
+                    this.particlesCanvas.width = window.innerWidth;
+                    this.particlesCanvas.height = window.innerHeight;
+                };
+                
+                resizeCanvas();
+                window.addEventListener('resize', Utils.debounce(resizeCanvas, 250));
+                
+                // Create particles
+                const particleCount = Math.min(50, Math.floor(window.innerWidth / 20));
+                
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push({
+                        x: Math.random() * this.particlesCanvas.width,
+                        y: Math.random() * this.particlesCanvas.height,
+                        vx: (Math.random() - 0.5) * 0.5,
+                        vy: (Math.random() - 0.5) * 0.5,
+                        size: Math.random() * 2 + 1,
+                        opacity: Math.random() * 0.5 + 0.2
+                    });
+                }
+                
+                const animate = () => {
+                    ctx.clearRect(0, 0, this.particlesCanvas.width, this.particlesCanvas.height);
+                    
+                    particles.forEach(particle => {
+                        particle.x += particle.vx;
+                        particle.y += particle.vy;
+                        
+                        // Wrap around edges
+                        if (particle.x < 0) particle.x = this.particlesCanvas.width;
+                        if (particle.x > this.particlesCanvas.width) particle.x = 0;
+                        if (particle.y < 0) particle.y = this.particlesCanvas.height;
+                        if (particle.y > this.particlesCanvas.height) particle.y = 0;
+                        
+                        ctx.globalAlpha = particle.opacity;
+                        ctx.fillStyle = '#00d4ff';
+                        ctx.beginPath();
+                        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                        ctx.fill();
+                    });
+                    
+                    requestAnimationFrame(animate);
+                };
+                
+                animate();
+            }
+        };
+
+        // ====== SKILLS SECTION ======
+        const SkillsSection = {
+            skillsGrid: null,
+            observer: null,
+            
+            init() {
+                this.skillsGrid = Utils.$('#skillsGrid');
+                if (!this.skillsGrid) return;
+                
+                this.renderSkills();
+                this.initScrollAnimations();
+            },
+            
+            renderSkills() {
+                this.skillsGrid.innerHTML = APP.skills.map(skill => `
+                    <div class="skill-card fade-in" data-level="${skill.level}">
+                        <div class="skill-header">
+                            <div class="skill-name">
+                                <i class="${skill.icon}" aria-hidden="true"></i>
+                                <span>${skill.name}</span>
+                            </div>
+                            <span class="skill-level">${skill.level}%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="${skill.level}"></div>
+                        </div>
+                        <div class="skill-description">${skill.description}</div>
+                        <div class="skill-stars">${Utils.generateStars(skill.level)}</div>
+                    </div>
+                `).join('');
+            },
+            
+            initScrollAnimations() {
+                const skillCards = Utils.$$('.skill-card');
+                
+                this.observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            
+                            // Animate progress bars
+                            const progressBar = entry.target.querySelector('.skill-progress');
+                            if (progressBar) {
+                                const width = progressBar.getAttribute('data-width');
+                                setTimeout(() => {
+                                    progressBar.style.width = width + '%';
+                                }, 300);
+                            }
+                        }
+                    });
+                }, { threshold: 0.3 });
+                
+                skillCards.forEach(card => {
+                    this.observer.observe(card);
+                });
+            },
+            
+            destroy() {
+                if (this.observer) {
+                    this.observer.disconnect();
+                }
+            }
+        };
+
+        // ====== PROJECTS SECTION ======
+        const ProjectsSection = {
+            projectsGrid: null,
+            observer: null,
+
+                        init() {
+                this.projectsGrid = Utils.$('#projectsGrid');
+                if (!this.projectsGrid) return;
+                
+                this.renderProjects();
+                this.initScrollAnimations();
+            },
+            
+            renderProjects() {
+                this.projectsGrid.innerHTML = APP.projects.map(project => `
+                    <div class="project-card fade-in">
+                        <div class="project-image">
+                            ${project.image ? 
+                                `<img src="${project.image}" alt="${project.title}" loading="lazy">` : 
+                                `<div class="project-placeholder">
+                                    <i class="fas fa-code" aria-hidden="true"></i>
+                                </div>`
+                            }
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">${project.title}</h3>
+                                <span class="project-category">${project.category}</span>
+                            </div>
+                            <p class="project-description">${project.description}</p>
+                            <div class="project-tech">
+                                ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                            </div>
+                            <div class="project-links">
+                                <a href="${project.github}" class="project-link primary" target="_blank" rel="noopener noreferrer" aria-label="View ${project.title} on GitHub">
+                                    <i class="fab fa-github" aria-hidden="true"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="${project.demo}" class="project-link secondary" aria-label="View ${project.title} demo">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                    <span>Demo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            },
+            
+            initScrollAnimations() {
+                const projectCards = Utils.$$('.project-card');
+                
+                this.observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry, index) => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                entry.target.classList.add('visible');
+                            }, index * 100);
+                        }
+                    });
+                }, { threshold: 0.2 });
+                
+                projectCards.forEach(card => {
+                    this.observer.observe(card);
+                });
+            },
+            
+            destroy() {
+                if (this.observer) {
+                    this.observer.disconnect();
+                }
+            }
+        };
+
+        // ====== TIMELINE SECTION ======
+        const TimelineSection = {
+            timeline: null,
+            observer: null,
+            
+            init() {
+                this.timeline = Utils.$('.timeline');
+                if (!this.timeline) return;
+                
+                this.initScrollAnimations();
+            },
+            
+            initScrollAnimations() {
+                const timelineItems = Utils.$$('.timeline-item');
+                
+                this.observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry, index) => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                entry.target.classList.add('visible');
+                            }, index * 200);
+                        }
+                    });
+                }, { threshold: 0.3 });
+                
+                timelineItems.forEach(item => {
+                    this.observer.observe(item);
+                });
+            },
+            
+            destroy() {
+                if (this.observer) {
+                    this.observer.disconnect();
+                }
+            }
+        };
+
+        // ====== CONTACT FORM ======
+        const ContactForm = {
+            form: null,
+            submitButton: null,
+            formStatus: null,
+            
+            init() {
+                this.form = Utils.$('#contactForm');
+                this.submitButton = Utils.$('#submitButton');
+                this.formStatus = Utils.$('#formStatus');
+                
+                if (!this.form) return;
+                
+                this.bindEvents();
+            },
+            
+            bindEvents() {
+                this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+                
+                // Real-time validation
+                const inputs = this.form.querySelectorAll('.form-input');
+                inputs.forEach(input => {
+                    input.addEventListener('blur', () => this.validateField(input));
+                    input.addEventListener('input', () => this.clearError(input));
+                });
+            },
+            
+            handleSubmit(e) {
+                e.preventDefault();
+                
+                if (!this.validateForm()) {
+                    return;
+                }
+                
+                this.setLoading(true);
+                
+                const formData = new FormData(this.form);
+                const data = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    message: formData.get('message')
+                };
+                
+                // Simulate form submission (replace with actual implementation)
+                setTimeout(() => {
+                    this.handleFormResponse(true, 'Message sent successfully! I\'ll get back to you soon.');
+                    this.form.reset();
+                    this.setLoading(false);
+                }, 2000);
+            },
+            
+            validateForm() {
+                const inputs = this.form.querySelectorAll('.form-input');
+                let isValid = true;
+                
+                inputs.forEach(input => {
+                    if (!this.validateField(input)) {
+                        isValid = false;
+                    }
+                });
+                
+                return isValid;
+            },
+            
+            validateField(input) {
+                const value = input.value.trim();
+                const fieldName = input.name;
+                let isValid = true;
+                let errorMessage = '';
+                
+                // Clear previous states
+                this.clearError(input);
+                
+                // Required field validation
+                if (!value) {
+                    errorMessage = `${fieldName.charAt(0).toUpperCase() + fieldName.slice(1)} is required`;
+                    isValid = false;
+                } else {
+                    // Specific validations
+                    switch (fieldName) {
+                        case 'name':
+                            if (value.length < 2) {
+                                errorMessage = 'Name must be at least 2 characters';
+                                isValid = false;
+                            }
+                            break;
+                        case 'email':
+                            if (!Utils.isValidEmail(value)) {
+                                errorMessage = 'Please enter a valid email address';
+                                isValid = false;
+                            }
+                            break;
+                        case 'message':
+                            if (value.length < 10) {
+                                errorMessage = 'Message must be at least 10 characters';
+                                isValid = false;
+                            }
+                            break;
+                    }
+                }
+                
+                if (!isValid) {
+                    this.showFieldError(input, errorMessage);
+                } else {
+                    input.classList.add('success');
+                }
+                
+                return isValid;
+            },
+            
+            showFieldError(input, message) {
+                input.classList.add('error');
+                const errorElement = input.parentNode.querySelector('.form-error');
+                if (errorElement) {
+                    errorElement.textContent = message;
+                }
+            },
+            
+            clearError(input) {
+                input.classList.remove('error', 'success');
+                const errorElement = input.parentNode.querySelector('.form-error');
+                if (errorElement) {
+                    errorElement.textContent = '';
+                }
+            },
+            
+            setLoading(isLoading) {
+                if (isLoading) {
+                    this.submitButton.disabled = true;
+                    this.submitButton.innerHTML = `
+                        <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
+                        <span>Sending...</span>
+                    `;
+                    this.showFormStatus('loading', 'Sending your message...');
+                } else {
+                    this.submitButton.disabled = false;
+                    this.submitButton.innerHTML = `
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                        <span>Send Message</span>
+                    `;
+                }
+            },
+            
+            handleFormResponse(success, message) {
+                if (success) {
+                    this.showFormStatus('success', message);
+                    // Trigger confetti on success
+                    if (window.Confetti) {
+                        Confetti.start();
+                    }
+                } else {
+                    this.showFormStatus('error', message);
+                }
+            },
+            
+            showFormStatus(type, message) {
+                this.formStatus.className = `form-status ${type}`;
+                this.formStatus.innerHTML = `
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'spinner fa-spin'}" aria-hidden="true"></i>
+                    <span>${message}</span>
+                `;
+                this.formStatus.classList.add('visible');
+                
+                // Auto-hide after 5 seconds for success/error
+                if (type !== 'loading') {
+                    setTimeout(() => {
+                        this.formStatus.classList.remove('visible');
+                    }, 5000);
+                }
+            }
+        };
+
+        // ====== SCROLL ANIMATIONS ======
+        const ScrollAnimations = {
+            observer: null,
+            
+            init() {
+                this.initFadeInAnimations();
+                this.initParallaxEffects();
+            },
+            
+            initFadeInAnimations() {
+                const fadeElements = Utils.$$('.fade-in');
+                
+                this.observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+                
+                fadeElements.forEach(element => {
+                    this.observer.observe(element);
+                });
+            },
+            
+            initParallaxEffects() {
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+                
+                const parallaxElements = Utils.$$('[data-parallax]');
+                
+                if (parallaxElements.length === 0) return;
+                
+                window.addEventListener('scroll', Utils.throttle(() => {
+                    const scrolled = window.pageYOffset;
+                    const rate = scrolled * -0.5;
+                    
+                    parallaxElements.forEach(element => {
+                        const speed = element.getAttribute('data-parallax') || 0.5;
+                        element.style.transform = `translate3d(0, ${scrolled * speed}px, 0)`;
+                    });
+                }, 16));
+            },
+            
+            destroy() {
+                if (this.observer) {
+                    this.observer.disconnect();
+                }
+            }
+        };
+
+        // ====== PERFORMANCE MONITOR ======
+        const PerformanceMonitor = {
+            init() {
+                this.logPerformanceMetrics();
+                this.monitorResourceLoading();
+            },
+            
+            logPerformanceMetrics() {
+                if (window.performance && window.performance.timing) {
+                    window.addEventListener('load', () => {
+                        setTimeout(() => {
+                            const timing = performance.timing;
+                            const loadTime = timing.loadEventEnd - timing.navigationStart;
+                            const domReady = timing.domContentLoadedEventEnd - timing.navigationStart;
+                            
+                            if (window.__DEV__) {
+                                console.log(`🚀 Performance Metrics:
+                                    - Page Load Time: ${loadTime}ms
+                                    - DOM Ready Time: ${domReady}ms
+                                    - DNS Lookup: ${timing.domainLookupEnd - timing.domainLookupStart}ms
+                                    - Server Response: ${timing.responseEnd - timing.requestStart}ms`);
+                            }
+                        }, 0);
+                    });
+                }
+            },
+            
+            monitorResourceLoading() {
+                if (window.performance && window.performance.getEntriesByType) {
+                    window.addEventListener('load', () => {
+                        const resources = performance.getEntriesByType('resource');
+                        const slowResources = resources.filter(resource => resource.duration > 1000);
+                        
+                        if (slowResources.length > 0 && window.__DEV__) {
+                            console.warn('🐌 Slow loading resources:', slowResources);
+                        }
+                    });
+                }
+            }
+        };
+
+        // ====== ERROR HANDLER ======
+        const ErrorHandler = {
+            init() {
+                this.setupGlobalErrorHandlers();
+                this.setupUnhandledPromiseRejection();
+            },
+            
+            setupGlobalErrorHandlers() {
+                window.addEventListener('error', (event) => {
+                    this.logError('JavaScript Error', event.error || event.message, {
+                        filename: event.filename,
+                        lineno: event.lineno,
+                        colno: event.colno
+                    });
+                });
+            },
+            
+            setupUnhandledPromiseRejection() {
+                window.addEventListener('unhandledrejection', (event) => {
+                    this.logError('Unhandled Promise Rejection', event.reason);
+                    event.preventDefault(); // Prevent default console error
+                });
+            },
+            
+            logError(type, error, details = {}) {
+                if (window.__DEV__) {
+                    console.error(`❌ ${type}:`, error, details);
+                } else {
+                    // In production, send to error tracking service
+                    // Example: Sentry, LogRocket, etc.
+                }
+            }
+        };
+
+        // ====== ACCESSIBILITY ENHANCEMENTS ======
+        const AccessibilityEnhancements = {
+            init() {
+                this.setupKeyboardNavigation();
+                this.setupSkipLinks();
+                this.setupFocusManagement();
+                this.setupReducedMotion();
+            },
+            
+            setupKeyboardNavigation() {
+                // Add keyboard support for interactive elements
+                const interactiveElements = Utils.$$('[data-keyboard-interactive]');
+                
+                interactiveElements.forEach(element => {
+                    element.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            element.click();
+                        }
+                    });
+                });
+                
+                // Global keyboard shortcuts
+                document.addEventListener('keydown', (e) => {
+                    // Skip if user is typing
+                    if (e.target.matches('input, textarea, [contenteditable]')) {
+                        return;
+                    }
+                    
+                    switch (e.key) {
+                        case 'Escape':
+                            // Close any open modals or menus
+                            if (APP.mobileMenuOpen) {
+                                Navigation.closeMobileMenu();
+                            }
+                            break;
+                        case 'h':
+                        case 'H':
+                            // Go to home
+                            Navigation.scrollToSection(Utils.$('#home'));
+                            break;
+                        case '/':
+                            // Focus contact form
+                            e.preventDefault();
+                            const contactForm = Utils.$('#contactForm input');
+                            if (contactForm) {
+                                contactForm.focus();
+                            }
+                            break;
+                    }
+                });
+            },
+            
+            setupSkipLinks() {
+                const skipLinks = Utils.$$('.skip-link');
+                
+                skipLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetId = link.getAttribute('href').substring(1);
+                        const target = Utils.$(`#${targetId}`);
+                        
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                            target.focus();
+                        }
+                    });
+                });
+            },
+            
+            setupFocusManagement() {
+                // Visible focus indicator for keyboard users
+                document.addEventListener('keydown', () => {
+                    document.body.classList.add('keyboard-navigation');
+                });
+                
+                document.addEventListener('mousedown', () => {
+                    document.body.classList.remove('keyboard-navigation');
+                });
+                
+                // Trap focus in mobile menu
+                const mobileMenu = Utils.$('#mobileMenu');
+                if (mobileMenu) {
+                    mobileMenu.addEventListener('keydown', (e) => {
+                        if (e.key === 'Tab' && APP.mobileMenuOpen) {
+                            const focusableElements = mobileMenu.querySelectorAll(
+                                'a, button, [tabindex]:not([tabindex="-1"])'
+                            );
+                            
+                            const firstElement = focusableElements[0];
+                            const lastElement = focusableElements[focusableElements.length - 1];
+                            
+                            if (e.shiftKey && document.activeElement === firstElement) {
+                                e.preventDefault();
+                                lastElement.focus();
+                            } else if (!e.shiftKey && document.activeElement === lastElement) {
+                                e.preventDefault();
+                                firstElement.focus();
+                            }
+                        }
+                    });
+                }
+            },
+            
+            setupReducedMotion() {
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+                
+                if (prefersReducedMotion.matches) {
+                    document.body.classList.add('reduced-motion');
+                }
+                
+                prefersReducedMotion.addEventListener('change', () => {
+                    if (prefersReducedMotion.matches) {
+                        document.body.classList.add('reduced-motion');
+                    } else {
+                        document.body.classList.remove('reduced-motion');
+                    }
+                });
+            }
+        };
+
+        // ====== SERVICE WORKER ======
+        const ServiceWorkerManager = {
+            init() {
+                if ('serviceWorker' in navigator && !window.__DEV__) {
+                    this.registerServiceWorker();
+                }
+            },
+            
+            async registerServiceWorker() {
+                try {
+                    const registration = await navigator.serviceWorker.register('/sw.js');
+                    
+                    if (window.__DEV__) {
+                        console.log('✅ Service Worker registered:', registration);
+                    }
+                    
+                    // Handle updates
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                this.showUpdateNotification();
+                            }
+                        });
+                    });
+                } catch (error) {
+                    if (window.__DEV__) {
+                        console.warn('❌ Service Worker registration failed:', error);
+                    }
+                }
+            },
+            
+            showUpdateNotification() {
+                const notification = document.createElement('div');
+                notification.className = 'update-notification';
+                notification.innerHTML = `
+                    <div class="notification-content">
+                        <i class="fas fa-download" aria-hidden="true"></i>
+                        <span>A new version is available!</span>
+                        <button class="btn btn-primary btn-sm" onclick="window.location.reload()">
+                            Update Now
+                        </button>
+                    </div>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                // Auto-remove after 10 seconds
+                setTimeout(() => {
+                    notification.remove();
+                }, 10000);
+            }
+        };
+
+        // ====== ANALYTICS ======
+        const Analytics = {
+            init() {
+                if (window.__DEV__) return;
+                
+                this.trackPageView();
+                this.trackUserInteractions();
+                this.trackPerformanceMetrics();
+            },
+            
+            trackPageView() {
+                // Example: Google Analytics 4
+                if (typeof gtag !== 'undefined') {
+                    gtag('config', 'GA_MEASUREMENT_ID', {
+                        page_title: document.title,
+                        page_location: window.location.href
+                    });
+                }
+            },
+            
+            trackUserInteractions() {
+                // Track button clicks
+                document.addEventListener('click', (e) => {
+                    const target = e.target.closest('[data-analytics]');
+                    if (target) {
+                        const action = target.getAttribute('data-analytics');
+                        this.trackEvent('user_interaction', action, {
+                            element_type: target.tagName.toLowerCase(),
+                            element_text: target.textContent.trim().substring(0, 50)
+                        });
+                    }
+                });
+                
+                // Track form submissions
+                document.addEventListener('submit', (e) => {
+                    if (e.target.id === 'contactForm') {
+                        this.trackEvent('form_submission', 'contact_form', {
+                            form_id: e.target.id
+                        });
+                    }
+                });
+            },
+            
+            trackPerformanceMetrics() {
+                window.addEventListener('load', () => {
+                    setTimeout(() => {
+                        if (window.performance && window.performance.timing) {
+                            const timing = performance.timing;
+                            const loadTime = timing.loadEventEnd - timing.navigationStart;
+                            
+                            this.trackEvent('performance', 'page_load_time', {
+                                value: Math.round(loadTime),
+                                metric_type: 'milliseconds'
+                            });
+                        }
+                    }, 0);
+                });
+            },
+            
+            trackEvent(category, action, parameters = {}) {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', action, {
+                        event_category: category,
+                        ...parameters
+                    });
+                }
+                
+                if (window.__DEV__) {
+                    console.log('📊 Analytics Event:', { category, action, parameters });
+                }
+            }
+        };
+
+        // ====== PROGRESSIVE WEB APP ======
+        const PWAManager = {
+            deferredPrompt: null,
+            
+            init() {
+                this.handleInstallPrompt();
+                this.handleAppInstalled();
+                this.updateThemeColor();
+            },
+            
+            handleInstallPrompt() {
+                window.addEventListener('beforeinstallprompt', (e) => {
+                    e.preventDefault();
+                    this.deferredPrompt = e;
+                    this.showInstallButton();
+                });
+            },
+            
+            handleAppInstalled() {
+                window.addEventListener('appinstalled', () => {
+                    this.hideInstallButton();
+                    this.deferredPrompt = null;
+                    
+                    if (window.__DEV__) {
+                        console.log('✅ PWA installed successfully');
+                    }
+                });
+            },
+            
+            showInstallButton() {
+                let installButton = Utils.$('#installButton');
+                
+                if (!installButton) {
+                    installButton = document.createElement('button');
+                    installButton.id = 'installButton';
+                    installButton.className = 'btn btn-secondary install-button';
+                    installButton.innerHTML = `
+                        <i class="fas fa-download" aria-hidden="true"></i>
+                        <span>Install App</span>
+                    `;
+                    
+                    installButton.addEventListener('click', () => this.promptInstall());
+                    
+                    const heroActions = Utils.$('.hero-actions');
+                    if (heroActions) {
+                        heroActions.appendChild(installButton);
+                    }
+                }
+            },
+            
+            hideInstallButton() {
+                const installButton = Utils.$('#installButton');
+                if (installButton) {
+                    installButton.remove();
+                }
+            },
+            
+            async promptInstall() {
+                if (!this.deferredPrompt) return;
+                
+                this.deferredPrompt.prompt();
+                
+                const { outcome } = await this.deferredPrompt.userChoice;
+                
+                if (window.__DEV__) {
+                    console.log(`PWA install prompt outcome: ${outcome}`);
+                }
+                
+                this.deferredPrompt = null;
+                this.hideInstallButton();
+            },
+            
+            updateThemeColor() {
+                const updateThemeColor = () => {
+                    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                    const themeColor = isDark ? '#0a0a0f' : '#ffffff';
+                    
+                    let metaThemeColor = Utils.$('meta[name="theme-color"]');
+                    if (!metaThemeColor) {
+                        metaThemeColor = document.createElement('meta');
+                        metaThemeColor.name = 'theme-color';
+                        document.head.appendChild(metaThemeColor);
+                    }
+                    
+                    metaThemeColor.content = themeColor;
+                };
+                
+                // Update on theme change
+                const observer = new MutationObserver(updateThemeColor);
+                observer.observe(document.documentElement, {
+                    attributes: true,
+                    attributeFilter: ['data-theme']
+                });
+                
+                // Initial update
+                updateThemeColor();
+            }
+        };
+
+        // ====== MAIN APP INITIALIZATION ======
+        const App = {
+            isInitialized: false,
+            
+            async init() {
+                if (this.isInitialized) return;
+                
+                try {
+                    if (window.__DEV__) {
+                        console.log('🚀 Initializing Portfolio App...');
+                    }
+                    
+                    // Initialize core systems first
+                    ErrorHandler.init();
+                    PerformanceMonitor.init();
+                    
+                    // Initialize UI components
+                    LoadingScreen.init();
+                    
+                    // Wait for loading to complete
+                    await this.waitForLoading();
+                    
+                    // Initialize all components
+                    await this.initializeComponents();
+                    
+                    // Mark as fully loaded
+                    APP.isLoaded = true;
+                    this.isInitialized = true;
+                    
+                    // Set visit flag
+                    localStorage.setItem('portfolio-visited', Date.now().toString());
+                    
+                    if (window.__DEV__) {
+                        console.log('✅ Portfolio App initialized successfully');
+                    }
+                    
+                } catch (error) {
+                    console.error('❌ Failed to initialize app:', error);
+                    this.handleInitializationError(error);
+                }
+            },
+            
+            async waitForLoading() {
+                return new Promise((resolve) => {
+                    if (document.readyState === 'complete') {
+                        resolve();
+                    } else {
+                        window.addEventListener('load', resolve, { once: true });
+                    }
+                });
+            },
+            
+            async initializeComponents() {
+                // Initialize components in order of dependency
+                const initializationSteps = [
+                    () => ThemeToggle.init(),
+                    () => CustomCursor.init(),
+                    () => Confetti.init(),
+                    () => Navigation.init(),
+                    () => HeroSection.init(),
+                    () => SkillsSection.init(),
+                    () => ProjectsSection.init(),
+                    () => TimelineSection.init(),
+                    () => ContactForm.init(),
+                    () => ScrollAnimations.init(),
+                    () => AccessibilityEnhancements.init(),
+                    () => PWAManager.init(),
+                    () => ServiceWorkerManager.init(),
+                    () => Analytics.init()
+                ];
+                
+                // Initialize with small delays to prevent blocking
+                for (const step of initializationSteps) {
+                    try {
+                        await new Promise(resolve => {
+                            requestIdleCallback ? requestIdleCallback(() => {
+                                step();
+                                resolve();
+                            }) : setTimeout(() => {
+                                step();
+                                resolve();
+                            }, 0);
+                        });
+                    } catch (error) {
+                        console.warn('⚠️ Component initialization error:', error);
+                    }
+                }
+            },
+            
+            handleInitializationError(error) {
+                // Fallback initialization
+                document.body.classList.add('app-error');
+                
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'error-message';
+                errorMessage.innerHTML = `
+                    <div class="error-content">
+                        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                        <h2>Something went wrong</h2>
+                        <p>Please refresh the page to try again.</p>
+                        <button onclick="window.location.reload()" class="btn btn-primary">
+                            <i class="fas fa-refresh" aria-hidden="true"></i>
+                            Refresh Page
+                        </button>
+                    </div>
+                `;
+                
+                document.body.appendChild(errorMessage);
+            },
+            
+            destroy() {
+                // Cleanup all components
+                SkillsSection.destroy();
+                ProjectsSection.destroy();
+                TimelineSection.destroy();
+                ScrollAnimations.destroy();
+                
+                this.isInitialized = false;
+                APP.isLoaded = false;
+            }
+        };
+
+        // ====== AUTO-INITIALIZATION ======
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => App.init());
+        } else {
+            App.init();
+        }
+
+        // ====== GLOBAL EXPORTS ======
+        // Make components available globally for debugging
+        if (window.__DEV__) {
+            window.Portfolio = {
+                App,
+                Utils,
+                LoadingScreen,
+                CustomCursor,
+                Confetti,
+                ThemeToggle,
+                Navigation,
+                HeroSection,
+                SkillsSection,
+                ProjectsSection,
+                TimelineSection,
+                ContactForm,
+                ScrollAnimations,
+                PerformanceMonitor,
+                ErrorHandler,
+                AccessibilityEnhancements,
+                ServiceWorkerManager,
+                Analytics,
+                PWAManager
+            };
+        }
+
+        // ====== HOT RELOAD SUPPORT (Development) ======
+        if (window.__DEV__ && module && module.hot) {
+            module.hot.accept(() => {
+                console.log('🔄 Hot reloading...');
+                App.destroy();
+                App.init();
+            });
+        }
+
+    </script>
 </body>
 </html>
+
