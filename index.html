@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
     <!-- ====== META & SEO ====== -->
@@ -34,7 +34,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <!-- ====== FAVICON ====== -->
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>ðŸš€</text></svg>">
     
     <!-- ====== THEME COLOR ====== -->
     <meta name="theme-color" content="#0a0a0f">
@@ -162,6 +162,10 @@
             --z-modal: 1040;
             --z-tooltip: 1050;
             --z-cursor: 9999;
+            /* Aurora theme colors (dark/cool defaults) */
+            --aurora-a: rgba(0, 212, 255, 0.10);
+            --aurora-b: rgba(168, 230, 255, 0.08);
+            --aurora-conic: rgba(0, 212, 255, 0.06);
         }
 
         /* Light Theme */
@@ -176,6 +180,10 @@
             --color-primary-hover: #0052a3;
             --color-primary-glow: rgba(0, 102, 204, 0.2);
             --gradient-surface: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            /* Warmer aurora for light theme */
+            --aurora-a: rgba(255, 205, 150, 0.10);
+            --aurora-b: rgba(255, 170, 170, 0.08);
+            --aurora-conic: rgba(255, 160, 140, 0.06);
         }
 
         /* ====== BASE STYLES ====== */
@@ -393,6 +401,16 @@
             max-width: var(--container-max);
             margin: 0 auto;
             padding: 0 var(--space-4);
+        }
+
+        /* A11y utility for hidden labels */
+        .visually-hidden {
+            position: absolute !important;
+            height: 1px; width: 1px;
+            overflow: hidden;
+            clip: rect(1px, 1px, 1px, 1px);
+            white-space: nowrap;
+            border: 0; padding: 0; margin: -1px;
         }
 
         @media (min-width: 768px) {
@@ -701,8 +719,128 @@
         }
 
         .particles-canvas {
+            z-index: -2;
+            display: block;
+        }
+
+        /* Space theme overlay (nebula glow) */
+        .hero-space .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(1200px 600px at 20% 30%, rgba(0, 212, 255, 0.10), transparent 60%),
+                radial-gradient(1000px 500px at 80% 70%, rgba(255, 107, 107, 0.08), transparent 60%);
+            pointer-events: none;
+        }
+
+        /* Aurora gradient layer */
+        .hero-space .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: -20%;
+            background:
+                radial-gradient(60% 40% at 30% 60%, var(--aurora-a), transparent 70%),
+                radial-gradient(50% 35% at 70% 40%, var(--aurora-b), transparent 70%),
+                conic-gradient(from 180deg at 50% 50%, var(--aurora-conic), rgba(255, 107, 107, 0.04), var(--aurora-conic));
+            mix-blend-mode: screen;
+            filter: blur(30px) saturate(120%);
+            opacity: var(--aurora-opacity, 0.32);
+            animation: aurora var(--aurora-duration, 22s) ease-in-out infinite alternate;
+            pointer-events: none;
             z-index: -1;
-            display: none;
+        }
+
+        @keyframes aurora {
+            0%   { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+            50%  { transform: translate3d(2%, -2%, 0) rotate(3deg) scale(1.03); }
+            100% { transform: translate3d(0, 1%, 0) rotate(-2deg) scale(1); }
+        }
+
+        /* Decorative planets */
+        .space-planet {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1; /* above starfield, below iframe */
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.25), 0 0 80px rgba(0, 212, 255, 0.12);
+            opacity: 0.65;
+        }
+        .planet-trail {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(circle at 35% 35%, #a8e6ff 0%, #117a98 70%);
+            box-shadow: 0 0 10px rgba(168, 230, 255, 0.35), 0 0 20px rgba(0, 212, 255, 0.18);
+            opacity: 0.8;
+            animation: trail-drift var(--trail-duration, 18s) ease-in-out infinite alternate;
+        }
+        .trail-a1 { left: 9%; top: 22%; --trail-duration: 16s; }
+        .trail-a2 { left: 13%; top: 26%; width: 6px; height: 6px; opacity: 0.7; --trail-duration: 20s; }
+        .trail-b1 {
+            right: 11%; bottom: 18%;
+            background: radial-gradient(circle at 35% 35%, #ffd6e6 0%, #9b3b52 70%);
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.25), 0 0 20px rgba(255, 107, 107, 0.12);
+            width: 7px; height: 7px; --trail-duration: 24s;
+        }
+        .trail-c1 { left: 75%; top: 26%; width: 5px; height: 5px; opacity: 0.75; --trail-duration: 22s; }
+
+        @keyframes trail-drift {
+            0%   { transform: translate3d(0, 0, 0) scale(1); opacity: 0.75; }
+            50%  { transform: translate3d(6px, -4px, 0) scale(1.05); opacity: 0.9; }
+            100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.75; }
+        }
+
+        .planet-a {
+            width: var(--planet-a-size, 200px);
+            height: var(--planet-a-size, 200px);
+            left: var(--planet-a-left, 6%);
+            top: var(--planet-a-top, 16%);
+            background: radial-gradient(circle at 30% 30%, #a8e6ff 0%, #117a98 55%, #0a2a33 90%);
+        }
+
+        .planet-b {
+            width: var(--planet-b-size, 120px);
+            height: var(--planet-b-size, 120px);
+            right: var(--planet-b-right, 8%);
+            bottom: var(--planet-b-bottom, 14%);
+            background: radial-gradient(circle at 35% 35%, #ffd6e6 0%, #9b3b52 55%, #2a0f16 90%);
+            box-shadow: 0 0 40px rgba(255, 107, 107, 0.25), 0 0 80px rgba(255, 107, 107, 0.12);
+        }
+
+        /* Ring for planet-b */
+        .planet-b::after {
+            content: '';
+            position: absolute;
+            width: 160%;
+            height: 54%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(25deg);
+            border: 2px solid rgba(255, 255, 255, 0.16);
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+            pointer-events: none;
+            opacity: var(--ring-opacity, 0.22);
+            animation: ring-wobble var(--ring-duration, 0s) ease-in-out infinite alternate;
+        }
+
+        @keyframes ring-wobble {
+            0%   { transform: translate(-50%, -50%) rotate(25deg) scale(1); }
+            50%  { transform: translate(-50%, -50%) rotate(28deg) scale(1.02); }
+            100% { transform: translate(-50%, -50%) rotate(23deg) scale(1); }
+        }
+
+        .planet-c {
+            width: var(--planet-c-size, 90px);
+            height: var(--planet-c-size, 90px);
+            left: var(--planet-c-left, 72%);
+            top: var(--planet-c-top, 22%);
+            background: radial-gradient(circle at 35% 35%, #e6f7ff 0%, #2a4d5a 55%, #0c1a1f 90%);
+            box-shadow: 0 0 40px rgba(168, 230, 255, 0.25), 0 0 80px rgba(168, 230, 255, 0.12);
         }
 
         .hero-3d:not([src*="spline"]) + .particles-canvas,
@@ -811,6 +949,62 @@
             flex-wrap: wrap;
         }
 
+        .mood-control {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            color: var(--color-text-muted);
+            margin-top: var(--space-4);
+            flex-wrap: wrap;
+        }
+
+        .mood-slider {
+            width: 200px;
+            accent-color: var(--color-primary);
+        }
+
+        .mood-labels {
+            display: flex;
+            justify-content: space-between;
+            gap: var(--space-6);
+            font-size: var(--font-size-xs);
+            opacity: 0.8;
+        }
+
+        .mood-control { position: relative; }
+        .mood-tooltip {
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 0;
+            transform: translateX(-50%);
+            font-size: var(--font-size-xs);
+            background: var(--color-surface-2);
+            color: var(--color-text);
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+            box-shadow: var(--shadow-sm);
+            opacity: 0;
+            transition: opacity var(--duration-normal) var(--ease-out);
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        .mood-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0; height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid var(--color-surface-2);
+        }
+        .mood-control:hover .mood-tooltip,
+        .mood-slider:focus + .mood-tooltip,
+        .mood-slider:hover + .mood-tooltip {
+            opacity: 1;
+        }
+
         .hero-visual {
             display: flex;
             justify-content: center;
@@ -825,6 +1019,7 @@
             border-radius: var(--radius-xl);
             overflow: hidden;
             transform: perspective(1000px) rotateY(-5deg);
+            animation: float 6s var(--ease-in-out) infinite;
             transition: transform var(--duration-slow) var(--ease-out);
         }
 
@@ -851,6 +1046,12 @@
             filter: blur(20px);
             opacity: 0.5;
             animation: pulse 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: perspective(1000px) translateY(0) rotateY(-5deg); }
+            50% { transform: perspective(1000px) translateY(-8px) rotateY(-3deg); }
+            100% { transform: perspective(1000px) translateY(0) rotateY(-5deg); }
         }
 
         .scroll-indicator {
@@ -1949,6 +2150,10 @@
 
             .hero-name {
                 font-size: var(--font-size-4xl);
+                /* Improve readability and avoid typewriter overflow on small screens */
+                white-space: normal;
+                border-right: 0;
+                animation: nameGlow 3s ease-in-out infinite alternate;
             }
         }
 
@@ -1965,6 +2170,14 @@
                 width: 250px;
                 height: 320px;
                 transform: none;
+            }
+
+            /* Reposition planet C to avoid hero image overlap on narrow screens */
+            .planet-c {
+                left: auto !important;
+                right: 4% !important;
+                top: 10% !important;
+                transform: scale(0.85);
             }
             
             .projects-grid,
@@ -1988,6 +2201,9 @@
             .resume-content {
                 grid-template-columns: 1fr;
             }
+
+            /* Hide mood slider on mobile to reduce clutter */
+            .mood-control { display: none; }
         }
 
         /* ====== ACCESSIBILITY ====== */
@@ -2010,6 +2226,23 @@
                 border-right: none;
                 width: auto;
             }
+
+            .hero-image-container {
+                animation: none !important;
+                transform: none !important;
+            }
+
+            .hero-space .hero-bg::after {
+                animation: none !important;
+            }
+
+            .planet-trail {
+                animation: none !important;
+            }
+
+            .planet-b::after {
+                animation: none !important;
+            }
         }
 
         /* High contrast mode */
@@ -2020,6 +2253,11 @@
                 --color-text: #ffffff;
                 --color-surface: #111111;
             }
+        }
+
+        /* Light theme: lower aurora intensity for readability */
+        [data-theme="light"] .hero-space .hero-bg::after {
+            opacity: 0.18 !important;
         }
 
         /* Focus styles for keyboard navigation */
@@ -2195,11 +2433,20 @@
     <!-- ====== MAIN CONTENT ====== -->
     <main id="main">
         <!-- ====== SECTION: HERO ====== -->
-        <section id="home" class="hero" role="banner">
+        <section id="home" class="hero hero-space" aria-labelledby="home-title">
             <!-- 3D Background -->
             <div class="hero-bg">
-                <iframe id="hero3d" class="hero-3d" src="https://my.spline.design/untitled-7c0d9a9c8d0e5f2b4e2a2e7f2a1e1e1e" frameborder="0" width="100%" height="100%" loading="lazy"></iframe>
+                <iframe id="hero3d" class="hero-3d" src="https://my.spline.design/untitled-7c0d9a9c8d0e5f2b4e2a2e7f2a1e1e1e" frameborder="0" width="100%" height="100%" loading="lazy" title="" aria-hidden="true"></iframe>
                 <canvas id="particlesCanvas" class="particles-canvas" aria-hidden="true"></canvas>
+                <!-- Decorative planets for space theme -->
+                <div class="space-planet planet-a" aria-hidden="true" data-parallax="0.10"></div>
+                <div class="space-planet planet-b" aria-hidden="true" data-parallax="0.06"></div>
+                <div class="space-planet planet-c" aria-hidden="true" data-parallax="0.08"></div>
+                <!-- Tiny trail planets for extra depth -->
+                <div class="planet-trail trail-a1" aria-hidden="true" data-parallax="0.16"></div>
+                <div class="planet-trail trail-a2" aria-hidden="true" data-parallax="0.18"></div>
+                <div class="planet-trail trail-b1" aria-hidden="true" data-parallax="0.12"></div>
+                <div class="planet-trail trail-c1" aria-hidden="true" data-parallax="0.10"></div>
             </div>
             
             <div class="hero-content">
@@ -2208,12 +2455,12 @@
                         <span class="greeting-text">Hello, I'm</span>
                     </div>
                     
-                    <h1 class="hero-name">
-                        <span class="name-text"><strong><em>BHUVANESH D</em></strong></span>
+                    <h1 class="hero-name" id="home-title" aria-label="Bhuvanesh D">
+                        <span class="name-text" aria-hidden="true"><strong><em>BHUVANESH D</em></strong></span>
                     </h1>
                     
                     <div class="hero-role">
-                        <span class="role-text" id="roleText">Full-Stack Developer</span>
+                        <span class="role-text" id="roleText" aria-live="polite">Full-Stack Developer</span>
                     </div>
                     
                     <p class="hero-description">
@@ -2222,20 +2469,30 @@
                     </p>
                     
                     <div class="hero-actions">
-                        <a href="#projects" class="btn btn-primary">
+                        <a href="#projects" class="btn btn-primary" data-analytics="cta_view_projects">
                             <i class="fas fa-rocket" aria-hidden="true"></i>
                             <span>View Projects</span>
                         </a>
-                        <a href="#contact" class="btn btn-secondary">
+                        <a href="#contact" class="btn btn-secondary" data-analytics="cta_contact_me">
                             <i class="fas fa-paper-plane" aria-hidden="true"></i>
                             <span>Contact Me</span>
                         </a>
+                    </div>
+
+                    <div class="mood-control" aria-label="Space mood control">
+                        <label for="moodSlider" class="visually-hidden">Space mood (calm to epic)</label>
+                        <input type="range" id="moodSlider" class="mood-slider" min="0" max="100" value="35" aria-valuemin="0" aria-valuemax="100" aria-valuenow="35" aria-valuetext="35 percent" aria-label="Space mood">
+                        <span id="moodTooltip" class="mood-tooltip" aria-hidden="true">35%</span>
+                        <div class="mood-labels" aria-hidden="true">
+                            <span>Calm</span>
+                            <span>Epic</span>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="hero-visual">
                     <div class="hero-image-container">
-                        <img src="k1.jpg" alt="Bhuvanesh D - Full Stack Developer" class="hero-image" loading="eager" decoding="async" fetchpriority="high">
+                        <img src="k1.jpg" alt="Bhuvanesh D - Full Stack Developer" class="hero-image" loading="eager" decoding="async" fetchpriority="high" width="300" height="400">
                         <div class="hero-image-glow"></div>
                     </div>
                 </div>
@@ -2673,7 +2930,7 @@
     <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2025 Bhuvanesh D. Made with <span class="heart" aria-label="love">❤️</span> and lots of ☕</p>
+                <p>&copy; 2025 Bhuvanesh D. Made with <span class="heart" aria-label="love">â¤ï¸</span> and lots of â˜•</p>
                 <div class="footer-links">
                     <a href="#home" class="footer-link">Back to Top</a>
                 </div>
@@ -2711,6 +2968,44 @@
                 'Problem Solver'
             ],
             currentRoleIndex: 0,
+            
+            // Space theme configuration (tweak intensities/speeds here)
+            spaceTheme: {
+                stars: {
+                    densityScale: 0.95,      // calmer default
+                    min: 50,
+                    max: 180,
+                    areaDivisor: 26000,      // higher = fewer stars
+                    twinkleMin: 0.5,
+                    twinkleMax: 1.8,
+                    driftX: 0.12,            // subtle by default
+                    driftYMin: 0.06,
+                    driftYMax: 0.28,
+                    sizeMin: 0.45,
+                    sizeMax: 1.9
+                },
+                shooting: {
+                    minInterval: 4500,       // rarer by default
+                    maxInterval: 7000,
+                    maxConcurrent: 2,
+                    speedMin: 7,
+                    speedMax: 11,
+                    tailFactor: 3.2          // shorter tails by default
+                },
+                aurora: {
+                    opacity: 0.26,
+                    durationSec: 24
+                },
+                caps: {
+                    starCapDefault: 240,
+                    starCapLowEnd: 140
+                },
+                planets: {
+                    a: { size: 200, left: '6%', top: '16%' },
+                    b: { size: 120, right: '8%', bottom: '14%' },
+                    c: { size: 90, left: '72%', top: '22%' }
+                }
+            },
             
             // Portfolio Data
             skills: [
@@ -3210,9 +3505,67 @@
                 this.hero3d = Utils.$('#hero3d');
                 this.particlesCanvas = Utils.$('#particlesCanvas');
                 
+                // Apply space theme CSS variables
+                try {
+                    const hero = Utils.$('.hero-space');
+                    const cfg = APP.spaceTheme || {};
+                    if (hero && cfg) {
+                        const aur = cfg.aurora || {};
+                        if (aur.opacity != null) hero.style.setProperty('--aurora-opacity', String(aur.opacity));
+                        if (aur.durationSec != null) hero.style.setProperty('--aurora-duration', `${aur.durationSec}s`);
+
+                        const p = cfg.planets || {};
+                        if (p.a) {
+                            hero.style.setProperty('--planet-a-size', `${p.a.size || 200}px`);
+                            if (p.a.left) hero.style.setProperty('--planet-a-left', p.a.left);
+                            if (p.a.top) hero.style.setProperty('--planet-a-top', p.a.top);
+                        }
+                        if (p.b) {
+                            hero.style.setProperty('--planet-b-size', `${p.b.size || 120}px`);
+                            if (p.b.right) hero.style.setProperty('--planet-b-right', p.b.right);
+                            if (p.b.bottom) hero.style.setProperty('--planet-b-bottom', p.b.bottom);
+                        }
+                        if (p.c) {
+                            hero.style.setProperty('--planet-c-size', `${p.c.size || 90}px`);
+                            if (p.c.left) hero.style.setProperty('--planet-c-left', p.c.left);
+                            if (p.c.top) hero.style.setProperty('--planet-c-top', p.c.top);
+                        }
+                    }
+                } catch { /* no-op */ }
+                
                 this.initRoleRotation();
                 this.init3DBackground();
                 this.initParticles();
+
+                // Bind mood slider
+                const slider = Utils.$('#moodSlider');
+                if (slider) {
+                    const tooltip = Utils.$('#moodTooltip');
+                    const apply = () => {
+                        const value = Math.max(0, Math.min(100, parseInt(slider.value, 10) || 0));
+                        slider.setAttribute('aria-valuenow', String(value));
+                        slider.setAttribute('aria-valuetext', `${value} percent`);
+                        slider.setAttribute('title', `Mood: ${value}%`);
+                        if (tooltip) {
+                            tooltip.textContent = `${value}%`;
+                            // Position tooltip above thumb
+                            const container = slider.parentElement;
+                            const rect = slider.getBoundingClientRect();
+                            const crect = container.getBoundingClientRect();
+                            const min = Number(slider.min) || 0;
+                            const max = Number(slider.max) || 100;
+                            const ratio = (value - min) / (max - min);
+                            const x = (rect.left - crect.left) + ratio * rect.width;
+                            tooltip.style.left = `${x}px`;
+                        }
+                        this.setMood(value / 100);
+                    };
+                    slider.addEventListener('input', apply);
+                    slider.addEventListener('change', apply);
+                    window.addEventListener('resize', apply);
+                    // Initial apply
+                    apply();
+                }
             },
             
             initRoleRotation() {
@@ -3258,56 +3611,268 @@
             initParticles() {
                 if (!this.particlesCanvas) return;
                 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-                
-                const ctx = this.particlesCanvas.getContext('2d');
-                const particles = [];
-                
+                const canvas = this.particlesCanvas;
+                const ctx = canvas.getContext('2d');
+
+                const cfg = (APP && APP.spaceTheme) ? APP.spaceTheme : {};
+                const starCfg = cfg.stars || {};
+                const shootCfg = cfg.shooting || {};
+
+                // Starfield state
+                let stars = [];
+                let shootingStars = [];
+                let nextSpawn = 0;
+
+                const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+
                 const resizeCanvas = () => {
-                    this.particlesCanvas.width = window.innerWidth;
-                    this.particlesCanvas.height = window.innerHeight;
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                    createStars();
                 };
-                
+
+                const createStars = () => {
+                    const area = canvas.width * canvas.height;
+                    const divisor = starCfg.areaDivisor || 25000;
+                    const scale = starCfg.densityScale || 1.0;
+
+                    // Low-end device detection for capping
+                    const cores = navigator.hardwareConcurrency || 2;
+                    const mem = navigator.deviceMemory || 2;
+                    const pr = window.devicePixelRatio || 1;
+                    const smallScreen = window.innerWidth <= 768;
+                    const isLowEnd = (cores <= 4) || (mem <= 4) || (smallScreen && cores <= 6) || (pr > 2 && cores <= 6);
+                    const caps = (cfg.caps || {});
+                    const baseMax = starCfg.max || 160;
+                    const maxCap = isLowEnd ? (caps.starCapLowEnd || 140) : (caps.starCapDefault || 240);
+                    const effectiveMax = Math.min(baseMax, maxCap);
+
+                    const target = clamp(Math.floor((area / divisor) * scale), starCfg.min || 40, effectiveMax);
+                    stars = new Array(target).fill(0).map(() => {
+                        const depth = Math.random() * 1 + 0.25; // 0.25 - 1.25
+                        const twMin = starCfg.twinkleMin || 0.5;
+                        const twMax = starCfg.twinkleMax || 2.0;
+                        const sizeMin = starCfg.sizeMin || 0.4;
+                        const sizeMax = starCfg.sizeMax || 1.8;
+                        const driftX = starCfg.driftX || 0.15;
+                        const vyMin = starCfg.driftYMin || 0.05;
+                        const vyMax = starCfg.driftYMax || 0.30;
+                        return {
+                            x: Math.random() * canvas.width,
+                            y: Math.random() * canvas.height,
+                            vx: (Math.random() - 0.5) * driftX,
+                            vy: (Math.random() * (vyMax - vyMin) + vyMin),
+                            size: Math.random() * (sizeMax - sizeMin) + sizeMin,
+                            baseOpacity: Math.random() * 0.5 + 0.3,
+                            twinkleSpeed: Math.random() * (twMax - twMin) + twMin,
+                            twinklePhase: Math.random() * Math.PI * 2,
+                            depth,
+                            color: Math.random() < 0.15 ? '#a8e6ff' : '#ffffff'
+                        };
+                    });
+                };
+
+                const spawnShootingStar = () => {
+                    const fromRight = Math.random() > 0.5;
+                    const startX = fromRight ? canvas.width + 50 : canvas.width * (0.6 + Math.random() * 0.3);
+                    const startY = Math.random() * canvas.height * 0.4;
+                    const speed = (shootCfg.speedMin || 6) + Math.random() * ((shootCfg.speedMax || 12) - (shootCfg.speedMin || 6));
+                    const angle = fromRight ? Math.PI - Math.PI / 6 : Math.PI + Math.PI / 6; // left-down or left-up
+                    shootingStars.push({
+                        x: startX,
+                        y: startY,
+                        vx: -Math.cos(angle) * speed,
+                        vy: Math.sin(angle) * speed,
+                        life: 60,
+                        maxLife: 60
+                    });
+                };
+
+                const scheduleNextSpawn = (now) => {
+                    const minI = shootCfg.minInterval || 2500;
+                    const maxI = shootCfg.maxInterval || 5000;
+                    const delta = Math.random() * Math.max(0, (maxI - minI));
+                    nextSpawn = now + minI + delta;
+                };
+
                 resizeCanvas();
                 window.addEventListener('resize', Utils.debounce(resizeCanvas, 250));
-                
-                // Create particles
-                const particleCount = Math.min(50, Math.floor(window.innerWidth / 20));
-                
-                for (let i = 0; i < particleCount; i++) {
-                    particles.push({
-                        x: Math.random() * this.particlesCanvas.width,
-                        y: Math.random() * this.particlesCanvas.height,
-                        vx: (Math.random() - 0.5) * 0.5,
-                        vy: (Math.random() - 0.5) * 0.5,
-                        size: Math.random() * 2 + 1,
-                        opacity: Math.random() * 0.5 + 0.2
-                    });
-                }
-                
-                const animate = () => {
-                    ctx.clearRect(0, 0, this.particlesCanvas.width, this.particlesCanvas.height);
-                    
-                    particles.forEach(particle => {
-                        particle.x += particle.vx;
-                        particle.y += particle.vy;
-                        
-                        // Wrap around edges
-                        if (particle.x < 0) particle.x = this.particlesCanvas.width;
-                        if (particle.x > this.particlesCanvas.width) particle.x = 0;
-                        if (particle.y < 0) particle.y = this.particlesCanvas.height;
-                        if (particle.y > this.particlesCanvas.height) particle.y = 0;
-                        
-                        ctx.globalAlpha = particle.opacity;
-                        ctx.fillStyle = '#00d4ff';
+                scheduleNextSpawn(performance.now());
+
+                // Expose for live reconfiguration
+                this.particles = {
+                    createStars,
+                    scheduleNextSpawn: (now) => scheduleNextSpawn(now),
+                    starCfg,
+                    shootCfg
+                };
+
+                const animate = (now) => {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                    // Draw stars with twinkle and parallax-like depth
+                    for (let i = 0; i < stars.length; i++) {
+                        const s = stars[i];
+                        s.x += s.vx * s.depth;
+                        s.y += s.vy * s.depth;
+
+                        // Wrap around
+                        if (s.x < -2) s.x = canvas.width + 2;
+                        if (s.x > canvas.width + 2) s.x = -2;
+                        if (s.y > canvas.height + 2) s.y = -2;
+
+                        // Twinkle
+                        const tw = 0.5 + 0.5 * Math.sin((now / 1000) * s.twinkleSpeed + s.twinklePhase);
+                        ctx.globalAlpha = s.baseOpacity * tw;
+                        ctx.fillStyle = s.color;
                         ctx.beginPath();
-                        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                        ctx.arc(s.x, s.y, s.size * (0.7 + 0.6 * s.depth), 0, Math.PI * 2);
                         ctx.fill();
-                    });
-                    
+                    }
+
+                    // Shooting stars
+                    const maxConc = shootCfg.maxConcurrent || 2;
+                    if (now >= nextSpawn && shootingStars.length < maxConc) {
+                        spawnShootingStar();
+                        scheduleNextSpawn(now);
+                    }
+
+                    for (let i = shootingStars.length - 1; i >= 0; i--) {
+                        const sh = shootingStars[i];
+                        sh.x += sh.vx;
+                        sh.y += sh.vy;
+                        sh.life--;
+
+                        const t = sh.life / sh.maxLife;
+                        const tailFactor = shootCfg.tailFactor || 4;
+                        const tailX = -sh.vx * tailFactor;
+                        const tailY = -sh.vy * tailFactor;
+                        ctx.globalAlpha = Math.max(0, t);
+                        ctx.strokeStyle = 'rgba(255,255,255,0.9)';
+                        ctx.lineWidth = 2;
+                        ctx.beginPath();
+                        ctx.moveTo(sh.x, sh.y);
+                        ctx.lineTo(sh.x + tailX, sh.y + tailY);
+                        ctx.stroke();
+
+                        if (sh.life <= 0 || sh.x < -50 || sh.y > canvas.height + 50) {
+                            shootingStars.splice(i, 1);
+                        }
+                    }
+
                     requestAnimationFrame(animate);
                 };
-                
-                animate();
+
+                requestAnimationFrame(animate);
+            }
+            ,
+
+            // level: 0 (calm) .. 1 (epic)
+            setMood(level) {
+                const t = Math.max(0, Math.min(1, level || 0));
+                const hero = Utils.$('.hero-space');
+                const cfg = APP.spaceTheme || {};
+                const s = cfg.stars || (cfg.stars = {});
+                const sh = cfg.shooting || (cfg.shooting = {});
+
+                // Lerp helpers
+                const L = (a, b) => a + (b - a) * t;
+
+                // Stars intensity
+                s.densityScale = L(0.85, 2.2);
+                s.twinkleMin = L(0.5, 1.6);
+                s.twinkleMax = L(1.4, 3.5);
+                s.driftX = L(0.08, 0.28);
+                s.driftYMin = L(0.04, 0.12);
+                s.driftYMax = L(0.24, 0.65);
+                s.sizeMin = L(0.45, 0.8);
+                s.sizeMax = L(1.7, 3.2);
+
+                // Shooting stars frequency/length
+                sh.minInterval = Math.round(L(6500, 1500));
+                sh.maxInterval = Math.round(L(9500, 2800));
+                sh.maxConcurrent = Math.round(L(1, 4));
+                sh.speedMin = L(6, 14);
+                sh.speedMax = L(10, 20);
+                sh.tailFactor = L(2.5, 8.0);
+
+                // Aurora
+                const aurOpacity = L(0.16, 0.40);
+                const aurDuration = L(28, 16);
+                if (hero) {
+                    hero.style.setProperty('--aurora-opacity', String(aurOpacity));
+                    hero.style.setProperty('--aurora-duration', `${aurDuration}s`);
+                }
+
+                // Planets scale subtly
+                const baseA = 200, baseB = 120, baseC = 90;
+                if (hero) {
+                    hero.style.setProperty('--planet-a-size', `${Math.round(L(baseA, baseA + 40))}px`);
+                    hero.style.setProperty('--planet-b-size', `${Math.round(L(baseB, baseB + 20))}px`);
+                    hero.style.setProperty('--planet-c-size', `${Math.round(L(baseC, baseC + 20))}px`);
+                    // Planet ring animation intensity
+                    const ringDuration = L(0, 14); // 0s calm -> 14s epic (running)
+                    const ringOpacity = L(0.18, 0.34);
+                    hero.style.setProperty('--ring-duration', `${ringDuration}s`);
+                    hero.style.setProperty('--ring-opacity', String(ringOpacity));
+                }
+
+                // Rebuild stars with new density and schedule next shooting star
+                if (this.particles && this.particles.createStars) {
+                    this.particles.createStars();
+                    this.particles.scheduleNextSpawn(performance.now());
+                }
+
+                // Dynamic trail dots scale with mood
+                // Nonlinear ramp: smooth ease-out toward epic
+                const easeOutCubic = (x) => 1 - Math.pow(1 - x, 3);
+                const extraTrails = Math.round(10 * easeOutCubic(t));
+                this.setDynamicTrailCount(extraTrails);
+            }
+            ,
+            setDynamicTrailCount(count) {
+                const container = Utils.$('.hero-space .hero-bg');
+                if (!container) return;
+                const existing = Array.from(container.querySelectorAll('.planet-trail.dynamic'));
+                const baseStatic = container.querySelectorAll('.planet-trail:not(.dynamic)').length;
+                const currentExtra = existing.length;
+                const targetExtra = Math.max(0, Math.min(12, count|0));
+
+                // Remove excess
+                if (currentExtra > targetExtra) {
+                    existing.slice(targetExtra).forEach(el => el.remove());
+                }
+
+                // Add missing
+                for (let i = currentExtra; i < targetExtra; i++) {
+                    const el = this.createTrailDot();
+                    container.appendChild(el);
+                }
+            }
+            ,
+            createTrailDot() {
+                const el = document.createElement('div');
+                el.className = 'planet-trail dynamic';
+                const size = 4 + Math.random() * 5; // 4-9px
+                el.style.width = `${size}px`;
+                el.style.height = `${size}px`;
+                el.style.opacity = String(0.6 + Math.random() * 0.35);
+                // Random position, biased away from dead center
+                const x = Math.random();
+                const y = Math.random();
+                const left = Math.round(5 + x * 90);
+                const top = Math.round(6 + y * 88);
+                el.style.left = `${left}%`;
+                el.style.top = `${top}%`;
+                // Parallax
+                const p = (0.08 + Math.random() * 0.14).toFixed(2);
+                el.setAttribute('data-parallax', String(p));
+                // Color match near left/top vs right/bottom occasionally
+                if (Math.random() < 0.4) {
+                    el.style.background = 'radial-gradient(circle at 35% 35%, #ffd6e6 0%, #9b3b52 70%)';
+                    el.style.boxShadow = '0 0 10px rgba(255, 107, 107, 0.25), 0 0 20px rgba(255, 107, 107, 0.12)';
+                }
+                return el;
             }
         };
 
@@ -3726,7 +4291,7 @@
                             const domReady = timing.domContentLoadedEventEnd - timing.navigationStart;
                             
                             if (window.__DEV__) {
-                                console.log(`🚀 Performance Metrics:
+                                console.log(`ðŸš€ Performance Metrics:
                                     - Page Load Time: ${loadTime}ms
                                     - DOM Ready Time: ${domReady}ms
                                     - DNS Lookup: ${timing.domainLookupEnd - timing.domainLookupStart}ms
@@ -3744,7 +4309,7 @@
                         const slowResources = resources.filter(resource => resource.duration > 1000);
                         
                         if (slowResources.length > 0 && window.__DEV__) {
-                            console.warn('🐌 Slow loading resources:', slowResources);
+                            console.warn('ðŸŒ Slow loading resources:', slowResources);
                         }
                     });
                 }
@@ -3777,7 +4342,7 @@
             
             logError(type, error, details = {}) {
                 if (window.__DEV__) {
-                    console.error(`❌ ${type}:`, error, details);
+                    console.error(`âŒ ${type}:`, error, details);
                 } else {
                     // In production, send to error tracking service
                     // Example: Sentry, LogRocket, etc.
@@ -3919,7 +4484,7 @@
                     const registration = await navigator.serviceWorker.register('/sw.js');
                     
                     if (window.__DEV__) {
-                        console.log('✅ Service Worker registered:', registration);
+                        console.log('âœ… Service Worker registered:', registration);
                     }
                     
                     // Handle updates
@@ -3934,7 +4499,7 @@
                     });
                 } catch (error) {
                     if (window.__DEV__) {
-                        console.warn('❌ Service Worker registration failed:', error);
+                        console.warn('âŒ Service Worker registration failed:', error);
                     }
                 }
             },
@@ -4029,7 +4594,7 @@
                 }
                 
                 if (window.__DEV__) {
-                    console.log('📊 Analytics Event:', { category, action, parameters });
+                    console.log('ðŸ“Š Analytics Event:', { category, action, parameters });
                 }
             }
         };
@@ -4058,7 +4623,7 @@
                     this.deferredPrompt = null;
                     
                     if (window.__DEV__) {
-                        console.log('✅ PWA installed successfully');
+                        console.log('âœ… PWA installed successfully');
                     }
                 });
             },
@@ -4142,7 +4707,7 @@
                 
                 try {
                     if (window.__DEV__) {
-                        console.log('🚀 Initializing Portfolio App...');
+                        console.log('ðŸš€ Initializing Portfolio App...');
                     }
                     
                     // Initialize core systems first
@@ -4166,11 +4731,11 @@
                     localStorage.setItem('portfolio-visited', Date.now().toString());
                     
                     if (window.__DEV__) {
-                        console.log('✅ Portfolio App initialized successfully');
+                        console.log('âœ… Portfolio App initialized successfully');
                     }
                     
                 } catch (error) {
-                    console.error('❌ Failed to initialize app:', error);
+                    console.error('âŒ Failed to initialize app:', error);
                     this.handleInitializationError(error);
                 }
             },
@@ -4217,7 +4782,7 @@
                             }, 0);
                         });
                     } catch (error) {
-                        console.warn('⚠️ Component initialization error:', error);
+                        console.warn('âš ï¸ Component initialization error:', error);
                     }
                 }
             },
@@ -4292,7 +4857,7 @@
         // ====== HOT RELOAD SUPPORT (Development) ======
         if (window.__DEV__ && module && module.hot) {
             module.hot.accept(() => {
-                console.log('🔄 Hot reloading...');
+                console.log('ðŸ”„ Hot reloading...');
                 App.destroy();
                 App.init();
             });
