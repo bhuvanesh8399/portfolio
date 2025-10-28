@@ -28,6 +28,8 @@
     <!-- ====== PRELOAD CRITICAL ASSETS ====== -->
     <link rel="preload" href="./k1.jpg" as="image" fetchpriority="high">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@700;900&display=swap" as="style">
+    <!-- Prefetch resume PDF for smoother open -->
+    <link rel="prefetch" href="assets/Bhuvanesh_SoftwareEngg_leet-code_resume.pdf" as="document" type="application/pdf">
     
     <!-- ====== FONTS ====== -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
@@ -483,6 +485,15 @@
             justify-content: center;
         }
 
+        /* CTA grouping */
+        .cta-group {
+            display: flex;
+            gap: var(--space-3);
+            flex-wrap: wrap;
+            margin-top: var(--space-4);
+        }
+        .cta-group .btn { min-width: 160px; }
+
         .btn:focus-visible {
             outline: 2px solid var(--color-primary);
             outline-offset: 2px;
@@ -568,7 +579,8 @@
             gap: var(--space-3);
         }
 
-        .theme-toggle {
+        .theme-toggle,
+        .ambient-toggle {
             padding: var(--space-2);
             background: var(--color-surface);
             color: var(--color-text);
@@ -584,13 +596,16 @@
         }
 
         .theme-toggle:hover,
-        .theme-toggle:focus {
+        .theme-toggle:focus,
+        .ambient-toggle:hover,
+        .ambient-toggle:focus {
             background: var(--color-primary);
             color: white;
             transform: scale(1.1);
         }
 
-        .theme-toggle:focus-visible {
+        .theme-toggle:focus-visible,
+        .ambient-toggle:focus-visible {
             outline: 2px solid var(--color-primary);
             outline-offset: 2px;
         }
@@ -1297,6 +1312,8 @@
         /* ====== ABOUT SECTION ====== */
         .about {
             background: var(--color-bg);
+            position: relative;
+            overflow: hidden;
         }
 
         .about-content {
@@ -1635,7 +1652,35 @@
         /* ====== SKILLS SECTION ====== */
         .skills {
             background: var(--gradient-surface);
+            position: relative;
+            overflow: hidden;
         }
+
+        /* Skills background animation (ambient mesh) */
+        .skills::before {
+            content: '';
+            position: absolute;
+            inset: -20% -10% -20% -10%;
+            background:
+                radial-gradient(60% 40% at 20% 30%, rgba(0, 212, 255, 0.08), transparent 70%),
+                radial-gradient(50% 35% at 80% 70%, rgba(255, 107, 107, 0.06), transparent 70%),
+                conic-gradient(from 0deg at 50% 50%, rgba(0, 212, 255, 0.05), rgba(255, 107, 107, 0.03), rgba(0, 212, 255, 0.05));
+            mix-blend-mode: screen;
+            filter: blur(24px) saturate(120%);
+            opacity: 0.35;
+            animation: skillsFlow 30s linear infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes skillsFlow {
+            0%   { transform: rotate(0deg) scale(1); }
+            50%  { transform: rotate(8deg) scale(1.05); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Ensure content stays above the animated bg */
+        .skills > * { position: relative; z-index: 1; }
 
         .skills-grid {
             display: grid;
@@ -1759,7 +1804,36 @@
         /* ====== PROJECTS SECTION ====== */
         .projects {
             background: var(--color-bg);
+            position: relative;
+            overflow: hidden;
         }
+
+        /* Ambient backgrounds for About/Projects */
+        .about::before,
+        .projects::before {
+            content: '';
+            position: absolute;
+            inset: -15% -10% -15% -10%;
+            background:
+                radial-gradient(55% 35% at 15% 30%, rgba(0, 212, 255, 0.08), transparent 70%),
+                radial-gradient(50% 35% at 85% 70%, rgba(255, 107, 107, 0.06), transparent 70%),
+                conic-gradient(from 90deg at 50% 50%, rgba(0, 212, 255, 0.05), rgba(255, 107, 107, 0.03), rgba(0, 212, 255, 0.05));
+            mix-blend-mode: screen;
+            filter: blur(22px) saturate(115%);
+            opacity: 0.28;
+            animation: ambientDrift 36s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes ambientDrift {
+            0%   { transform: rotate(0deg) scale(1); }
+            50%  { transform: rotate(6deg) scale(1.04); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        .about > *,
+        .projects > * { position: relative; z-index: 1; }
 
         .projects-grid {
             display: grid;
@@ -2155,6 +2229,19 @@
                 border-right: 0;
                 animation: nameGlow 3s ease-in-out infinite alternate;
             }
+
+            /* Smaller headings on very small screens */
+            h1 { font-size: var(--font-size-4xl); }
+            h2 { font-size: var(--font-size-3xl); }
+            h3 { font-size: var(--font-size-2xl); }
+
+            .hero-description { font-size: var(--font-size-base); }
+
+            /* Stack Resume CTAs full-width */
+            .cta-group .btn { width: 100%; min-width: 0; }
+
+            /* Prefer particles over heavy 3D on small screens */
+            .hero-3d { display: none !important; }
         }
 
         @media (max-width: 768px) {
@@ -2204,6 +2291,13 @@
 
             /* Hide mood slider on mobile to reduce clutter */
             .mood-control { display: none; }
+
+            /* Tidy space elements on mobile */
+            .space-planet { transform: scale(0.85); opacity: 0.55; }
+            .planet-trail { display: none; }
+
+            /* Make CTA group buttons wrap nicely */
+            .cta-group .btn { flex: 1 1 100%; }
         }
 
         /* ====== ACCESSIBILITY ====== */
@@ -2243,6 +2337,15 @@
             .planet-b::after {
                 animation: none !important;
             }
+
+            .skills::before {
+                animation: none !important;
+            }
+
+            .about::before,
+            .projects::before {
+                animation: none !important;
+            }
         }
 
         /* High contrast mode */
@@ -2258,6 +2361,14 @@
         /* Light theme: lower aurora intensity for readability */
         [data-theme="light"] .hero-space .hero-bg::after {
             opacity: 0.18 !important;
+        }
+
+        /* Global ambient OFF switch */
+        .ambient-off .hero-space .hero-bg::after,
+        .ambient-off .skills::before,
+        .ambient-off .about::before,
+        .ambient-off .projects::before {
+            display: none !important;
         }
 
         /* Focus styles for keyboard navigation */
@@ -2366,6 +2477,9 @@
                 <div class="nav-controls">
                     <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Switch theme">
                         <i class="fas fa-sun" aria-hidden="true"></i>
+                    </button>
+                    <button id="ambientToggle" class="ambient-toggle" aria-label="Backgrounds enabled" aria-pressed="true" title="Backgrounds enabled" data-title-on="Backgrounds enabled" data-title-off="Backgrounds disabled" data-analytics="ambient_toggle">
+                        <i class="fas fa-image" aria-hidden="true"></i>
                     </button>
                     
                     <button id="menuButton" class="menu-button" aria-label="Toggle menu" aria-expanded="false">
@@ -2504,16 +2618,16 @@
         </section>
 
         <!-- ====== SECTION: RESUME ====== -->
-        <section id="resume" class="resume">
+        <section id="resume" class="resume" aria-labelledby="resume-title">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Professional Resume</h2>
+                    <h2 class="section-title" id="resume-title">Professional Resume</h2>
                     <p class="section-subtitle">Download my complete professional profile</p>
                 </div>
                 
                 <div class="resume-content">
-                    <div class="resume-preview">
-                        <div class="resume-mockup">
+                    <div class="resume-preview" data-pdf="assets/Bhuvanesh_SoftwareEngg_leet-code_resume.pdf">
+                        <div class="resume-mockup" role="button" tabindex="0" aria-label="Open resume preview (PDF)" data-analytics="resume_mockup_open">
                             <div class="resume-header">
                                 <i class="fas fa-file-alt" aria-hidden="true"></i>
                             </div>
@@ -2539,10 +2653,20 @@
                             <li><i class="fas fa-check" aria-hidden="true"></i> Hackathon winner & certified developer</li>
                         </ul>
                         
-                        <a href="Bhuvanesh_SoftwareEngg_leet-code_resume.pdf" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                            <i class="fas fa-download" aria-hidden="true"></i>
-                            <span>Download Resume</span>
-                        </a>
+                        <div class="cta-group" role="group" aria-label="Resume actions">
+                            <a id="resumeDownloadBtn" href="assets/Bhuvanesh_SoftwareEngg_leet-code_resume.pdf" class="btn btn-primary" download data-analytics="resume_download">
+                                <i class="fas fa-download" aria-hidden="true"></i>
+                                <span>Download Resume</span>
+                            </a>
+                            <a id="resumeViewBtn" href="assets/Bhuvanesh_SoftwareEngg_leet-code_resume.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-analytics="resume_view">
+                                <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                                <span>View PDF</span>
+                            </a>
+                            <button type="button" id="resumePrintBtn" class="btn btn-secondary" data-analytics="resume_print" data-keyboard-interactive>
+                                <i class="fas fa-print" aria-hidden="true"></i>
+                                <span>Print</span>
+                            </button>
+                        </div>
                     </div>
                     
                     <div class="resume-details">
@@ -3367,6 +3491,68 @@
             }
         };
 
+        // ====== AMBIENT TOGGLE ======
+        const AmbientToggle = {
+            button: null,
+            titles: { on: 'Ambient: on', off: 'Ambient: off' },
+            init() {
+                this.button = Utils.$('#ambientToggle');
+                if (!this.button) return;
+
+                // Pick up customizable titles from data-attrs
+                try {
+                    const on = this.button.getAttribute('data-title-on');
+                    const off = this.button.getAttribute('data-title-off');
+                    if (on) this.titles.on = on;
+                    if (off) this.titles.off = off;
+                } catch {}
+
+                // Default: off on mobile, off if reduced motion; on otherwise
+                const saved = localStorage.getItem('portfolio-ambient');
+                const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                const isMobile = window.matchMedia('(max-width: 768px)').matches || (navigator.maxTouchPoints > 0);
+                const enabled = saved ? saved === 'on' : !(prefersReduce || isMobile);
+                this.setEnabled(enabled, false);
+
+                this.button.addEventListener('click', () => this.toggle());
+
+                // React to reduced motion changes if no explicit user pref stored
+                window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', (e) => {
+                    if (!localStorage.getItem('portfolio-ambient')) {
+                        const isMobileNow = window.matchMedia('(max-width: 768px)').matches || (navigator.maxTouchPoints > 0);
+                        this.setEnabled(!(e.matches || isMobileNow), false);
+                    }
+                });
+
+                // React to viewport changes for mobile/desktop default if not persisted
+                window.addEventListener('resize', Utils.debounce(() => {
+                    if (!localStorage.getItem('portfolio-ambient')) {
+                        const isMobileNow = window.matchMedia('(max-width: 768px)').matches || (navigator.maxTouchPoints > 0);
+                        const prefersReduceNow = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                        this.setEnabled(!(prefersReduceNow || isMobileNow), false);
+                    }
+                }, 250));
+            },
+            isEnabled() {
+                return !document.documentElement.classList.contains('ambient-off');
+            },
+            setEnabled(on, persist = true) {
+                document.documentElement.classList.toggle('ambient-off', !on);
+                try {
+                    this.button?.setAttribute('aria-pressed', on ? 'true' : 'false');
+                    const icon = this.button?.querySelector('i');
+                    if (icon) icon.className = on ? 'fas fa-image' : 'fas fa-image-slash';
+                    const title = on ? this.titles.on : this.titles.off;
+                    this.button?.setAttribute('title', title);
+                    this.button?.setAttribute('aria-label', title);
+                    if (persist) localStorage.setItem('portfolio-ambient', on ? 'on' : 'off');
+                } catch { /* no-op */ }
+            },
+            toggle() {
+                this.setEnabled(!this.isEnabled());
+            }
+        };
+
         // ====== NAVIGATION ======
         const Navigation = {
             nav: null,
@@ -4046,6 +4232,48 @@
             destroy() {
                 if (this.observer) {
                     this.observer.disconnect();
+                }
+            }
+        };
+
+        // ====== RESUME SECTION ======
+        const ResumeSection = {
+            init() {
+                const container = Utils.$('#resume .resume-preview');
+                if (!container) return;
+
+                const pdf = container.getAttribute('data-pdf') || Utils.$('#resumeDownloadBtn')?.getAttribute('href');
+                const mockup = container.querySelector('.resume-mockup');
+                const viewBtn = Utils.$('#resumeViewBtn');
+                const downloadBtn = Utils.$('#resumeDownloadBtn');
+                const printBtn = Utils.$('#resumePrintBtn');
+
+                // Make mockup open the PDF
+                if (mockup && pdf) {
+                    const openPdf = () => window.open(pdf, '_blank', 'noopener');
+                    mockup.addEventListener('click', openPdf);
+                    mockup.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            openPdf();
+                        }
+                    });
+                }
+
+                // Ensure download uses same URL
+                if (downloadBtn && pdf) {
+                    downloadBtn.setAttribute('href', pdf);
+                }
+
+                // Print button: open PDF for printing (reliable across browsers)
+                if (printBtn && pdf) {
+                    printBtn.addEventListener('click', () => {
+                        const win = window.open(pdf, '_blank', 'noopener');
+                        // Attempt to trigger print when possible
+                        try {
+                            setTimeout(() => { win?.print?.(); }, 1200);
+                        } catch (_) { /* best-effort */ }
+                    });
                 }
             }
         };
@@ -4754,6 +4982,7 @@
                 // Initialize components in order of dependency
                 const initializationSteps = [
                     () => ThemeToggle.init(),
+                    () => AmbientToggle.init(),
                     () => CustomCursor.init(),
                     () => Confetti.init(),
                     () => Navigation.init(),
@@ -4761,6 +4990,7 @@
                     () => SkillsSection.init(),
                     () => ProjectsSection.init(),
                     () => TimelineSection.init(),
+                    () => ResumeSection.init(),
                     () => ContactForm.init(),
                     () => ScrollAnimations.init(),
                     () => AccessibilityEnhancements.init(),
