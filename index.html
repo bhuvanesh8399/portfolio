@@ -3450,7 +3450,7 @@
         </section>
 
         <!-- ====== SECTION: PROBLEM SOLVING (ACTIVE) ====== -->
-        <section id="problem-solving" aria-labelledby="ps-title" data-mode="readonly" data-profile-leetcode="https://leetcode.com/u/bhuvanesh_0326/" data-sync-endpoint="">
+        <section id="problem-solving" aria-labelledby="ps-title" data-mode="readonly" data-profile-leetcode="https://leetcode.com/u/bhuvanesh_0326/" data-sync-endpoint="https://leetcode.com/u/bhuvanesh_0326/">
         </section>
 
         <!-- ====== SECTION: PROJECTS ====== -->
@@ -3632,8 +3632,8 @@
             
             // Portfolio Data
             skills: [
-                { name: 'Java', level: 90, icon: 'fab fa-java', description: 'Enterprise-grade applications with Spring Boot' },
-                { name: 'Python', level: 75, icon: 'fab fa-python', description: 'Data science and web development' },
+                { name: 'Java', icon: 'fab fa-java', description: 'Enterprise-grade applications with Spring Boot' },
+                { name: 'Python',  icon: 'fab fa-python', description: 'Data science and web development' },
                 { name: 'React', level: 80, icon: 'fab fa-react', description: 'Modern UI development with hooks' },
                 { name: 'Flutter', level: 70, icon: 'fas fa-mobile-alt', description: 'Cross-platform mobile apps' },
                 { name: 'Node.js', level: 75, icon: 'fab fa-node-js', description: 'Scalable backend services' },
@@ -5842,7 +5842,48 @@
         if(filters) filters.remove();
         const list = sec.querySelector('.ps-list');
         if(list) list.remove();
+        // Insert "Last synced" line
+        const updatedEl = sec.querySelector('#ps-last-updated');
+        if(updatedEl && !sec.querySelector('#ps-last-synced')){
+          const synced = document.createElement('span');
+          synced.id = 'ps-last-synced';
+          synced.className = 'ps__updated';
+          synced.style.marginLeft = '8px';
+          try { const cur = JSON.parse(localStorage.getItem('ps:entries:v1')||'{}'); if(cur.updatedAt){ synced.textContent = 'Last synced: ' + new Date(cur.updatedAt).toLocaleString(); } } catch {}
+          updatedEl.insertAdjacentElement('afterend', synced);
+        }
       });
+    </script>
+    <script>
+      // Live sync (rate-limited + backoff). Configure data-sync-endpoint with a JSON endpoint.
+      (function(){
+        const sec = document.getElementById('problem-solving');
+        if(!sec) return;
+        const url = sec.getAttribute('data-sync-endpoint');
+        if(!url) return;
+        const LS_KEY='ps:entries:v1', META_LAST='ps:sync:lastFetchAt', META_FAILS='ps:sync:failCount', META_NEXT='ps:sync:nextRetryAt';
+        const BASE=30*60*1000, MAX=6*60*60*1000; // 30m, 6h
+        try{
+          const now=Date.now();
+          const next=Number(localStorage.getItem(META_NEXT)||0); if(next && now<next) return;
+          const last=Number(localStorage.getItem(META_LAST)||0); if(last && (now-last)<BASE) return;
+          localStorage.setItem(META_LAST,String(now));
+          fetch(url,{headers:{'Accept':'application/json'},cache:'no-store'})
+            .then(r=>{if(!r.ok) throw new Error('HTTP '+r.status); return r.json();})
+            .then(payload=>{
+              if(payload && payload.items && payload.updatedAt){
+                const cur=JSON.parse(localStorage.getItem(LS_KEY)||'{}');
+                if(!cur.updatedAt || new Date(payload.updatedAt)>new Date(cur.updatedAt)){
+                  localStorage.setItem(LS_KEY, JSON.stringify(payload));
+                  localStorage.setItem(META_FAILS,'0'); localStorage.removeItem(META_NEXT);
+                  const el=document.querySelector('#ps-last-synced'); if(el){ el.textContent='Last synced: '+new Date(payload.updatedAt).toLocaleString(); }
+                  setTimeout(()=>{ try{ location.reload(); }catch{} }, 100);
+                }
+              }
+            })
+            .catch(err=>{ const fails=Math.min(10, Number(localStorage.getItem(META_FAILS)||0)+1); localStorage.setItem(META_FAILS,String(fails)); const delay=Math.min(MAX, Math.pow(2,fails)*60*1000); localStorage.setItem(META_NEXT, String(Date.now()+delay)); console.warn('Live sync failed, backoff', delay, err); });
+        }catch(e){ console.warn('Live sync error', e); }
+      })();
     </script>
   </body>
 </html>
