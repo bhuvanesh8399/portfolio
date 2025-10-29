@@ -5844,7 +5844,7 @@
         if(list) list.remove();
         const heatmap = sec.querySelector('.ps-heatmap-card');
         if(heatmap) heatmap.remove();
-        // Insert "Last synced" line
+        // Insert "Last synced" line and Active Streak tile
         const updatedEl = sec.querySelector('#ps-last-updated');
         if(updatedEl && !sec.querySelector('#ps-last-synced')){
           const synced = document.createElement('span');
@@ -5853,6 +5853,29 @@
           synced.style.marginLeft = '8px';
           try { const cur = JSON.parse(localStorage.getItem('ps:entries:v1')||'{}'); if(cur.updatedAt){ synced.textContent = 'Last synced: ' + new Date(cur.updatedAt).toLocaleString(); } } catch {}
           updatedEl.insertAdjacentElement('afterend', synced);
+        }
+
+        // Add big Active Streak tile after KPIs
+        const kpis = sec.querySelector('.ps-kpis');
+        if(kpis && !sec.querySelector('.ps-streak-tile')){
+          const calcStreak = (items)=>{
+            const set = new Set(items.filter(x=>x && x.date && x.status!=='todo').map(x=>x.date));
+            // current
+            let cur=0; let d=new Date(); d.setHours(0,0,0,0);
+            for(;;){ const s=d.toISOString().slice(0,10); if(set.has(s)){ cur++; d.setDate(d.getDate()-1);} else break; }
+            // best
+            const dates=[...set].sort(); let best=0,tmp=0,prev=null;
+            for(const dd of dates){ if(prev){ const p=new Date(prev); p.setDate(p.getDate()+1); const ps=p.toISOString().slice(0,10); tmp = (dd===ps)? tmp+1 : 1; } else tmp=1; best=Math.max(best,tmp); prev=dd; }
+            return {cur,best};
+          };
+          let items=[]; try{ items = (JSON.parse(localStorage.getItem('ps:entries:v1')||'{}').items)||[] }catch{}
+          const s = calcStreak(items);
+          const tile = document.createElement('div');
+          tile.className = 'ps-card ps-streak-tile';
+          tile.innerHTML = '<div class="ps-card__head"><h3 class="ps-card__title">Active Streak</h3></div>'+
+                           '<div class="ps-streak__value">'+s.cur+' day'+(s.cur===1?'':'s')+'</div>'+
+                           '<div class="ps-streak__hint">Best streak: '+s.best+' day'+(s.best===1?'':'s')+'</div>';
+          kpis.insertAdjacentElement('afterend', tile);
         }
       });
     </script>

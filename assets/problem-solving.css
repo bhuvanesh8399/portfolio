@@ -47,3 +47,9 @@
 [data-mode="readonly"] .ps-filters{display:none!important}
 [data-mode="readonly"] .ps-list{display:none!important}
 [data-mode="readonly"] .ps-heatmap-card{display:none!important}
+[data-mode="readonly"] .ps-trends{display:none!important}
+
+/* Active Streak tile */
+.ps-streak-tile{display:grid;gap:8px;text-align:center}
+.ps-streak__value{font-size:2rem;font-weight:800;letter-spacing:.5px;color:var(--ps-primary)}
+.ps-streak__hint{color:var(--ps-muted)}
