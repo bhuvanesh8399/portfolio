@@ -1,9 +1,4 @@
-/* ====== CSS CUSTOM PROPERTIES ====== */
-:root {
-    /* Colors - Dark Theme */
-    --color-bg: #0a0a0f;
-    --color-surface: #111118;
-    --color-surface-2: #1a1a23;
+urface-2: #1a1a23;
     --color-text: #ffffff;
     --color-text-muted: #a0a0ab;
     --color-text-dim: #6b6b76;
@@ -115,20 +110,6 @@
 html {
     font-size: 16px;
     scroll-behavior: smooth;
-    scroll-padding-top: calc(var(--header-height) + 1rem);
-}
-
-/* Ensure in-page anchors don’t hide under fixed header */
-#home,
-#about,
-#resume,
-#experience,
-#journey,
-#skills,
-#projects,
-#problem-solving,
-#contact {
-  scroll-margin-top: calc(var(--header-height) + 1rem);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1567,3 +1548,4 @@ section {
         padding: var(--space-8) 0;
     }
 }
+

@@ -73,9 +73,8 @@
     }
     </script>
 
-    <!-- Styles extracted to style.css -->
-    <!-- (embedded <style> neutralized for maintainability) -->
-    <style type="text/plain" data-extracted="true">
+    <!-- Styles (embedded) -->
+    <style>
         /* ====== CSS CUSTOM PROPERTIES ====== */
         :root {
             /* Colors - Dark Theme */
@@ -2905,7 +2904,7 @@
                 <div class="about-content">
                     <div class="about-image-section">
                         <div class="about-image-container">
-                            <img src="images/miladicode.png" alt="Bhuvanesh D" class="about-image" loading="lazy">
+                            <img src="k1.jpg" alt="Bhuvanesh D" class="about-image" loading="lazy">
                         </div>
                         
                         <div class="about-quick-facts" role="region" aria-label="Quick facts">
@@ -3356,7 +3355,10 @@
                                         <i class="fas fa-expand" aria-hidden="true"></i>
                                         <span>View Fullscreen</span>
                                     </button>
-                                    <!-- Download disabled: large media removed from repo to keep project lightweight -->
+                                    <a id="expVideoDownloadBtn" class="btn btn-secondary" href="Eazy%20byts%20.mp4" download data-analytics="exp_video_download">
+                                        <i class="fas fa-download" aria-hidden="true"></i>
+                                        <span>Download</span>
+                                    </a>
                                     <a id="expDemoBtn" class="btn btn-secondary" href="https://eazy-byts-trade-app.vercel.app/" target="_blank" rel="noopener noreferrer" title="Open Live Demo" data-analytics="exp_view_demo">
                                         <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                                         <span>Live Demo</span>
@@ -3695,8 +3697,8 @@
         </div>
     </footer>
 
-    <!-- ====== EMBEDDED JAVASCRIPT (disabled; extracted to app.js) ====== -->
-    <script type="text/plain" data-extracted="true">
+    <!-- ====== EMBEDDED JAVASCRIPT ====== -->
+    <script>
         /*!
          * Portfolio App - Vanilla JavaScript
          * Author: Bhuvanesh D
@@ -5930,7 +5932,6 @@
         }
 
     </script>
-    <script defer src="app.js"></script>
     <script defer src="assets/problem-solving-inline.js"></script>
     <script defer src="assets/problem-solving.js"></script>
     <script>
