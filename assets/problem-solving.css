@@ -44,3 +44,5 @@
 /* Read-only mode helpers */
 [data-mode="readonly"] .ps-card-item__actions{display:none!important}
 [data-mode="readonly"] #ps-reminder{display:none!important}
+[data-mode="readonly"] .ps-filters{display:none!important}
+[data-mode="readonly"] .ps-list{display:none!important}

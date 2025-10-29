@@ -5794,6 +5794,7 @@
         }
 
     </script>
+    <script defer src="assets/problem-solving-inline.js"></script>
     <script defer src="assets/problem-solving.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function(){
@@ -5810,6 +5811,11 @@
         if(emptyActions) emptyActions.innerHTML = '<a class="ps-btn ps-btn--secondary" href="'+profile+'" target="_blank" rel="noopener">LeetCode Profile</a>';
         const headerActions = sec.querySelector('.ps__header-actions');
         if(headerActions) headerActions.innerHTML = '<a class="ps-btn ps-btn--secondary" href="'+profile+'" target="_blank" rel="noopener">LeetCode Profile</a>';
+        // Remove filters and list in read-only view
+        const filters = sec.querySelector('.ps-filters');
+        if(filters) filters.remove();
+        const list = sec.querySelector('.ps-list');
+        if(list) list.remove();
       });
     </script>
   </body>
