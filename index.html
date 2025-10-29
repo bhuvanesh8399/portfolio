@@ -3450,7 +3450,7 @@
         </section>
 
         <!-- ====== SECTION: PROBLEM SOLVING (ACTIVE) ====== -->
-        <section id="problem-solving" aria-labelledby="ps-title"></section>
+        <section id="problem-solving" aria-labelledby="ps-title" data-mode="readonly" data-profile-leetcode="https://leetcode.com/u/bhuvanesh_0326/"></section>
 
         <!-- ====== SECTION: PROJECTS ====== -->
         <section id="projects" class="projects">
@@ -5795,6 +5795,23 @@
 
     </script>
     <script defer src="assets/problem-solving.js"></script>
-</body>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        const sec = document.getElementById('problem-solving');
+        if(!sec) return;
+        const readonly = sec.getAttribute('data-mode') === 'readonly' || sec.getAttribute('data-readonly') === 'true';
+        if(!readonly) return;
+        const ids = ['ps-add-open','ps-export','ps-import-open','ps-share','ps-reminder','ps-empty-add','ps-empty-import','ps-add-modal','ps-import-modal'];
+        ids.forEach(id=>{ const el = sec.querySelector('#'+id); if(!el) return; if(el.tagName === 'DIALOG') { el.remove(); } else { el.style.display='none'; }});
+        const profile = sec.getAttribute('data-profile-leetcode') || 'https://leetcode.com/';
+        const emptyText = sec.querySelector('#ps-empty .ps-empty__text');
+        if(emptyText) emptyText.textContent = 'No local entries yet. View my LeetCode profile for recent activity.';
+        const emptyActions = sec.querySelector('#ps-empty .ps-empty__actions');
+        if(emptyActions) emptyActions.innerHTML = '<a class="ps-btn ps-btn--secondary" href="'+profile+'" target="_blank" rel="noopener">LeetCode Profile</a>';
+        const headerActions = sec.querySelector('.ps__header-actions');
+        if(headerActions) headerActions.innerHTML = '<a class="ps-btn ps-btn--secondary" href="'+profile+'" target="_blank" rel="noopener">LeetCode Profile</a>';
+      });
+    </script>
+  </body>
 </html>
 
