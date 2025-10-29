@@ -118,6 +118,19 @@ html {
     scroll-padding-top: calc(var(--header-height) + 1rem);
 }
 
+/* Ensure in-page anchors don’t hide under fixed header */
+#home,
+#about,
+#resume,
+#experience,
+#journey,
+#skills,
+#projects,
+#problem-solving,
+#contact {
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
