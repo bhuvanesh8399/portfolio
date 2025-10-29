@@ -3450,7 +3450,8 @@
         </section>
 
         <!-- ====== SECTION: PROBLEM SOLVING (ACTIVE) ====== -->
-        <section id="problem-solving" aria-labelledby="ps-title" data-mode="readonly" data-profile-leetcode="https://leetcode.com/u/bhuvanesh_0326/"></section>
+        <section id="problem-solving" aria-labelledby="ps-title" data-mode="readonly" data-profile-leetcode="https://leetcode.com/u/bhuvanesh_0326/" data-sync-endpoint="">
+        </section>
 
         <!-- ====== SECTION: PROJECTS ====== -->
         <section id="projects" class="projects">
@@ -5796,6 +5797,31 @@
     </script>
     <script defer src="assets/problem-solving-inline.js"></script>
     <script defer src="assets/problem-solving.js"></script>
+    <script>
+      // Optional live sync: set data-sync-endpoint on #problem-solving to a Cloudflare Worker URL
+      document.addEventListener('DOMContentLoaded', async function(){
+        const sec = document.getElementById('problem-solving');
+        if(!sec) return;
+        const url = sec.getAttribute('data-sync-endpoint');
+        if(!url) return; // not configured
+        try {
+          const res = await fetch(url, { headers: { 'Accept':'application/json' }, cache: 'no-store' });
+          if(!res.ok) return;
+          const payload = await res.json();
+          if(!payload || !payload.items || !payload.updatedAt) return;
+          const key = 'ps:entries:v1';
+          const curRaw = localStorage.getItem(key) || '{}';
+          let curUpdated = '';
+          try { curUpdated = JSON.parse(curRaw).updatedAt || ''; } catch {}
+          if(!curUpdated || new Date(payload.updatedAt) > new Date(curUpdated)) {
+            localStorage.setItem(key, JSON.stringify(payload));
+            window.location.reload();
+          }
+        } catch (e) {
+          console.warn('Live sync failed', e);
+        }
+      });
+    </script>
     <script>
       document.addEventListener('DOMContentLoaded', function(){
         const sec = document.getElementById('problem-solving');
