@@ -3788,16 +3788,6 @@
             
             // Portfolio Data
             skills: [
-                { name: 'Java', icon: 'fab fa-java', description: 'Enterprise-grade applications with Spring Boot' },
-                { name: 'Python',  icon: 'fab fa-python', description: 'Data science and web development' },
-                { name: 'React', icon: 'fab fa-react', description: 'Modern UI development with hooks' },
-                { name: 'Flutter', icon: 'fas fa-mobile-alt', description: 'Cross-platform mobile apps' },
-                { name: 'Node.js',  icon: 'fab fa-node-js', description: 'Scalable backend services' },
-                { name: 'MySQL',  icon: 'fas fa-database', description: 'Relational database design' },
-                { name: 'MongoDB',  icon: 'fas fa-leaf', description: 'NoSQL document database' },
-                { name: 'Docker',  icon: 'fab fa-docker', description: 'Containerization and deployment' },
-                { name: 'Git', icon: 'fab fa-git-alt', description: 'Version control and collaboration' },
-                { name: 'JavaScript',  icon: 'fab fa-js-square', description: 'Modern ES6+ development' }
                 { name: 'Java', level: 90, icon: 'fab fa-java', description: 'Enterprise-grade applications with Spring Boot' },
                 { name: 'Python', level: 75, icon: 'fab fa-python', description: 'Data science and web development' },
                 { name: 'React', level: 80, icon: 'fab fa-react', description: 'Modern UI development with hooks' },
@@ -4814,17 +4804,6 @@
             renderProjects() {
                 const list = this.getFilteredProjects();
                 this.projectsGrid.innerHTML = list.map(project => `
-
-                        init() {
-                this.projectsGrid = Utils.$('#projectsGrid');
-                if (!this.projectsGrid) return;
-                
-                this.renderProjects();
-                this.initScrollAnimations();
-            },
-            
-            renderProjects() {
-                this.projectsGrid.innerHTML = APP.projects.map(project => `
                     <div class="project-card fade-in">
                         <div class="project-image">
                             ${project.image ? 
