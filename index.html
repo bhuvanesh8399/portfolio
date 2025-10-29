@@ -3450,7 +3450,7 @@
         </section>
 
         <!-- ====== SECTION: PROBLEM SOLVING (ACTIVE) ====== -->
-        <section id="problem-solving" aria-labelledby="ps-title" data-mode="readonly" data-profile-leetcode="https://leetcode.com/u/bhuvanesh_0326/" data-sync-endpoint="https://leetcode.com/u/bhuvanesh_0326/">
+        <section id="problem-solving" aria-labelledby="ps-title" data-mode="readonly" data-profile-leetcode="https://leetcode.com/u/bhuvanesh_0326/">
         </section>
 
         <!-- ====== SECTION: PROJECTS ====== -->
@@ -3634,14 +3634,14 @@
             skills: [
                 { name: 'Java', icon: 'fab fa-java', description: 'Enterprise-grade applications with Spring Boot' },
                 { name: 'Python',  icon: 'fab fa-python', description: 'Data science and web development' },
-                { name: 'React', level: 80, icon: 'fab fa-react', description: 'Modern UI development with hooks' },
-                { name: 'Flutter', level: 70, icon: 'fas fa-mobile-alt', description: 'Cross-platform mobile apps' },
-                { name: 'Node.js', level: 75, icon: 'fab fa-node-js', description: 'Scalable backend services' },
-                { name: 'MySQL', level: 80, icon: 'fas fa-database', description: 'Relational database design' },
-                { name: 'MongoDB', level: 70, icon: 'fas fa-leaf', description: 'NoSQL document database' },
-                { name: 'Docker', level: 60, icon: 'fab fa-docker', description: 'Containerization and deployment' },
-                { name: 'Git', level: 85, icon: 'fab fa-git-alt', description: 'Version control and collaboration' },
-                { name: 'JavaScript', level: 85, icon: 'fab fa-js-square', description: 'Modern ES6+ development' }
+                { name: 'React', icon: 'fab fa-react', description: 'Modern UI development with hooks' },
+                { name: 'Flutter', icon: 'fas fa-mobile-alt', description: 'Cross-platform mobile apps' },
+                { name: 'Node.js',  icon: 'fab fa-node-js', description: 'Scalable backend services' },
+                { name: 'MySQL',  icon: 'fas fa-database', description: 'Relational database design' },
+                { name: 'MongoDB',  icon: 'fas fa-leaf', description: 'NoSQL document database' },
+                { name: 'Docker',  icon: 'fab fa-docker', description: 'Containerization and deployment' },
+                { name: 'Git', icon: 'fab fa-git-alt', description: 'Version control and collaboration' },
+                { name: 'JavaScript',  icon: 'fab fa-js-square', description: 'Modern ES6+ development' }
             ],
             
             projects: [
@@ -5837,11 +5837,13 @@
         if(emptyActions) emptyActions.innerHTML = '<a class="ps-btn ps-btn--secondary" href="'+profile+'" target="_blank" rel="noopener">LeetCode Profile</a>';
         const headerActions = sec.querySelector('.ps__header-actions');
         if(headerActions) headerActions.innerHTML = '<a class="ps-btn ps-btn--secondary" href="'+profile+'" target="_blank" rel="noopener">LeetCode Profile</a>';
-        // Remove filters and list in read-only view
+        // Remove filters, list, and calendar heatmap in read-only view
         const filters = sec.querySelector('.ps-filters');
         if(filters) filters.remove();
         const list = sec.querySelector('.ps-list');
         if(list) list.remove();
+        const heatmap = sec.querySelector('.ps-heatmap-card');
+        if(heatmap) heatmap.remove();
         // Insert "Last synced" line
         const updatedEl = sec.querySelector('#ps-last-updated');
         if(updatedEl && !sec.querySelector('#ps-last-synced')){

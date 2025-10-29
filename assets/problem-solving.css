@@ -46,3 +46,4 @@
 [data-mode="readonly"] #ps-reminder{display:none!important}
 [data-mode="readonly"] .ps-filters{display:none!important}
 [data-mode="readonly"] .ps-list{display:none!important}
+[data-mode="readonly"] .ps-heatmap-card{display:none!important}
