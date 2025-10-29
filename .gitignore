@@ -1,0 +1,11 @@
+# Ignore large media
+*.mp4
+*.mov
+*.zip
+*.tar
+*.tgz
+*.7z
+
+# Local seeds/backups (optional)
+*.bak.json
+
