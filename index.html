@@ -1855,6 +1855,8 @@
             position: relative;
             overflow: hidden;
         }
+        /* Journey section inherits section spacing and surface */
+        .journey { background: var(--gradient-surface); }
 
         /* Skills background animation (ambient mesh) */
         .skills::before {
@@ -2089,7 +2091,6 @@
             border: 1px solid var(--color-surface-2);
             transition: all var(--duration-normal) var(--ease-out);
             position: relative;
-            group: hover;
         }
 
         .project-card:hover {
@@ -2695,6 +2696,11 @@
                         </a>
                     </li>
                     <li role="none">
+                        <a href="#problem-solving" class="nav-link" data-section="problem-solving" role="menuitem">
+                            <span>Problem Solving</span>
+                        </a>
+                    </li>
+                    <li role="none">
                         <a href="#resume" class="nav-link" data-section="resume" role="menuitem">
                             <span>Resume</span>
                         </a>
@@ -2702,13 +2708,6 @@
                     <li role="none">
                         <a href="#experience" class="nav-link" data-section="experience" role="menuitem">
                             <span>Experience</span>
-                        </a>
-                    </li>
-                    <li role="none">
-                        <a href="#problem-solving" class="nav-link" data-section="problem-solving" role="menuitem">
-                            <span>Problem Solving</span>
-                        <a href="#about" class="nav-link" data-section="about" role="menuitem">
-                            <span>About</span>
                         </a>
                     </li>
                     <li role="none">
@@ -2767,6 +2766,12 @@
                                 </a>
                             </li>
                             <li role="none">
+                                <a href="#problem-solving" class="mobile-nav-link" role="menuitem">
+                                    <i class="fas fa-brain" aria-hidden="true"></i>
+                                    <span>Problem Solving</span>
+                                </a>
+                            </li>
+                            <li role="none">
                                 <a href="#resume" class="mobile-nav-link" role="menuitem">
                                     <i class="fas fa-file-alt" aria-hidden="true"></i>
                                     <span>Resume</span>
@@ -2776,15 +2781,6 @@
                                 <a href="#experience" class="mobile-nav-link" role="menuitem">
                                     <i class="fas fa-briefcase" aria-hidden="true"></i>
                                     <span>Experience</span>
-                                </a>
-                            </li>
-                            <li role="none">
-                                <a href="#problem-solving" class="mobile-nav-link" role="menuitem">
-                                    <i class="fas fa-brain" aria-hidden="true"></i>
-                                    <span>Problem Solving</span>
-                                <a href="#about" class="mobile-nav-link" role="menuitem">
-                                    <i class="fas fa-user" aria-hidden="true"></i>
-                                    <span>About</span>
                                 </a>
                             </li>
                             <li role="none">
@@ -3527,7 +3523,7 @@
         </div>
 
         <!-- ====== SECTION: JOURNEY/TIMELINE ====== -->
-        <section id="journey" class="about" aria-labelledby="journey-title">
+        <section id="journey" class="journey" aria-labelledby="journey-title">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title" id="journey-title">My Journey</h2>
@@ -6068,6 +6064,5 @@
       })();
     </script>
   </body>
-</body>
 </html>
 
