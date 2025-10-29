@@ -1,0 +1,30 @@
+name: Problem Solving — LeetCode Sync
+
+on:
+  schedule:
+    - cron: '17 5 * * *' # daily
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run sync script
+        run: node scripts/leetcode-sync.mjs
+        env:
+          LC_USERNAME: bhuvanesh_0326
+
+      - name: Commit updated seed
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(ps): update problem-solving data from LeetCode"
+          file_pattern: assets/problem-solving-inline.js
+
