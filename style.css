@@ -112,6 +112,18 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Ensure in-page anchors account for fixed header when linked externally */
+#home,
+#about,
+#experience,
+#journey,
+#skills,
+#projects,
+#problem-solving,
+#contact {
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;

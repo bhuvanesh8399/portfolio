@@ -3180,7 +3180,7 @@
                             </div>
                             <div>
                                 <h3 class="card-title" id="exp-eb-title">
-                                    Full Stack Java Developer (Intern) — EazyByts Web Solutions
+                                    Full Stack Java Developer (Intern) ï¿½ EazyByts Web Solutions
                                 </h3>
                                 <div class="skill-tags" aria-label="Status and notes">
                                     <span class="skill-tag">Intern</span>
@@ -3265,7 +3265,7 @@
                                 </div>
 
                                 <p style="margin-top: var(--space-4); color: var(--color-text-muted);">
-                                    Location: Meerut, Uttar Pradesh • Website: <a href="https://www.eazybyts.com" target="_blank" rel="noopener noreferrer">eazybyts.com</a>
+                                    Location: Meerut, Uttar Pradesh ï¿½ Website: <a href="https://www.eazybyts.com" target="_blank" rel="noopener noreferrer">eazybyts.com</a>
                                 </p>
                             </div>
                         </div>
@@ -3278,7 +3278,7 @@
                                 <i class="fas fa-video"></i>
                             </div>
                             <div>
-                                <h3 class="card-title" id="exp-showcase-title">Trade App (JWT Authentication) — Smooth UI/UX</h3>
+                                <h3 class="card-title" id="exp-showcase-title">Trade App (JWT Authentication) ï¿½ Smooth UI/UX</h3>
                                 <div class="skill-tags" aria-label="Tags">
                                     <span class="skill-tag">Showcase</span>
                                     <span class="skill-tag">Individual Project</span>
@@ -3304,7 +3304,7 @@
                                     </figure>
                                 </div>
                                 <p class="exp-caption">
-                                    Trade App walkthrough — Spring Boot APIs with JWT, Dockerized services, and a
+                                    Trade App walkthrough ï¿½ Spring Boot APIs with JWT, Dockerized services, and a
                                     React + Vite + Tailwind interface with smooth UI/UX.
                                 </p>
 
@@ -3355,10 +3355,6 @@
                                         <i class="fas fa-expand" aria-hidden="true"></i>
                                         <span>View Fullscreen</span>
                                     </button>
-                                    <a id="expVideoDownloadBtn" class="btn btn-secondary" href="Eazy%20byts%20.mp4" download data-analytics="exp_video_download">
-                                        <i class="fas fa-download" aria-hidden="true"></i>
-                                        <span>Download</span>
-                                    </a>
                                     <a id="expDemoBtn" class="btn btn-secondary" href="https://eazy-byts-trade-app.vercel.app/" target="_blank" rel="noopener noreferrer" title="Open Live Demo" data-analytics="exp_view_demo">
                                         <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                                         <span>Live Demo</span>
@@ -4953,6 +4949,19 @@
                 this.setupLazyVideo();
                 this.setupKeyboardShortcuts();
                 this.setupTechFilters();
+
+                // If no video source is configured, disable fullscreen and remove download CTA
+                try {
+                    const hasSrc = this.mainVideo.getAttribute('src') || this.mainVideo.getAttribute('data-src');
+                    if (!hasSrc) {
+                        if (this.openBtn) {
+                            this.openBtn.setAttribute('disabled','true');
+                            this.openBtn.setAttribute('aria-disabled','true');
+                            this.openBtn.title = 'Video coming soon';
+                        }
+                        this.downloadBtn?.remove?.();
+                    }
+                } catch {}
             },
 
             bindEvents() {
@@ -4984,8 +4993,9 @@
 
             openModal() {
                 if (!this.modal || !this.modalVideo || !this.mainVideo) return;
-                // Sync src and start playing
+                // Sync src and start playing (bail if no source configured)
                 const src = this.mainVideo.getAttribute('src') || this.mainVideo.getAttribute('data-src');
+                if (!src) { return; }
                 if (src) this.modalVideo.setAttribute('src', src);
                 this.lastFocus = document.activeElement;
                 this.modal.classList.add('active');
