@@ -1553,3 +1553,6 @@ section {
     }
 }
 
+
+/* Hide duplicate About section if present */
+section.about[data-duplicate='true']{display:none !important;}
