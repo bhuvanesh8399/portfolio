@@ -4159,14 +4159,20 @@
             },
             
             scrollToSection(section) {
-                const headerOffset = 80;
-                const elementPosition = section.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'auto'
-                });
+                // Compute robust offset (accounts for header height and page end)
+                const header = document.querySelector('.header');
+                const headerOffset = header ? Math.max(0, header.offsetHeight) : 80;
+                const rect = section.getBoundingClientRect();
+                const absoluteTop = rect.top + window.pageYOffset;
+                let targetTop = Math.max(0, absoluteTop - headerOffset - 4);
+                const maxTop = Math.max(0, (document.documentElement.scrollHeight || document.body.scrollHeight) - window.innerHeight);
+                if (targetTop > maxTop) targetTop = maxTop;
+                try {
+                    window.scrollTo({ top: targetTop, behavior: 'auto' });
+                } catch {
+                    // Fallback
+                    section.scrollIntoView();
+                }
             },
             
             updateActiveLink(activeSection) {
