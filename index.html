@@ -4089,6 +4089,17 @@
                     link.addEventListener('click', (e) => this.handleNavClick(e));
                 });
 
+                // Handle external/hash changes (e.g., direct links, manual edits)
+                window.addEventListener('hashchange', () => {
+                    const id = (location.hash || '').replace('#','');
+                    if (!id) return;
+                    const target = Utils.$('#' + id);
+                    if (target) {
+                        this.scrollToSection(target);
+                        this.updateActiveLink(id);
+                    }
+                });
+
                 // Brand link scrolls home with offset
                 const brand = Utils.$('.brand-link');
                 brand?.addEventListener('click', (e) => {
@@ -4161,6 +4172,9 @@
                     
                     this.scrollToSection(targetSection);
                     this.updateActiveLink(targetId);
+
+                    // Reflect hash for shareability/fallback
+                    try { history.replaceState(null, '', `#${targetId}`); } catch { location.hash = targetId; }
                 }
             },
             
