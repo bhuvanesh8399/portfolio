@@ -579,6 +579,10 @@ strong {
     transition: all var(--duration-normal) var(--ease-out);
     min-height: 44px;
 }
+.mobile-nav-link.active {
+    background: var(--color-surface);
+    color: var(--color-primary);
+}
 
 .mobile-nav-link:hover,
 .mobile-nav-link:focus {

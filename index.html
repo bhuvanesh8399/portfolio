@@ -4205,6 +4205,19 @@
                 
                 this.bindEvents();
                 this.updateActiveLink();
+
+                // If page loads with a hash, adjust scroll to account for fixed header
+                try {
+                    if (location.hash) {
+                        const target = Utils.$(location.hash);
+                        if (target) {
+                            setTimeout(() => {
+                                this.scrollToSection(target);
+                                this.updateActiveLink(location.hash.substring(1));
+                            }, 50);
+                        }
+                    }
+                } catch {}
             },
             
             bindEvents() {
@@ -4214,6 +4227,17 @@
                 // Navigation links
                 this.navLinks.forEach(link => {
                     link.addEventListener('click', (e) => this.handleNavClick(e));
+                });
+
+                // Brand link scrolls home with offset
+                const brand = Utils.$('.brand-link');
+                brand?.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const home = Utils.$('#home');
+                    if (home) {
+                        this.scrollToSection(home);
+                        this.updateActiveLink('home');
+                    }
                 });
                 
                 // Scroll detection
@@ -4311,6 +4335,13 @@
                 Utils.$$('.nav-link').forEach(link => {
                     const isActive = link.getAttribute('data-section') === activeSection;
                     link.classList.toggle('active', isActive);
+                });
+
+                // Reflect active state in mobile menu as well (based on href)
+                Utils.$$('.mobile-nav-link').forEach(link => {
+                    const href = link.getAttribute('href') || '';
+                    const id = href.startsWith('#') ? href.substring(1) : href;
+                    link.classList.toggle('active', id === activeSection);
                 });
             }
         };
