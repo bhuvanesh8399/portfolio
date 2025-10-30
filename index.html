@@ -4168,7 +4168,7 @@
                 const maxTop = Math.max(0, (document.documentElement.scrollHeight || document.body.scrollHeight) - window.innerHeight);
                 if (targetTop > maxTop) targetTop = maxTop;
                 try {
-                    window.scrollTo({ top: targetTop, behavior: 'auto' });
+                    window.scrollTo({ top: targetTop, behavior: 'smooth' });
                 } catch {
                     // Fallback
                     section.scrollIntoView();
@@ -4954,7 +4954,7 @@
                             } else if (targetSection) {
                                 const headerOffset = 80;
                                 const offset = targetSection.getBoundingClientRect().top + window.pageYOffset - headerOffset;
-                                window.scrollTo({ top: offset, behavior: 'auto' });
+                                window.scrollTo({ top: offset, behavior: 'smooth' });
                             }
                         } catch {}
                     });
@@ -5368,7 +5368,7 @@
                         const target = Utils.$(`#${targetId}`);
                         
                         if (target) {
-                            target.scrollIntoView({ behavior: 'auto' });
+                            target.scrollIntoView({ behavior: 'smooth' });
                             target.focus();
                         }
                     });
@@ -5972,4 +5972,5 @@
     <!-- ====== EMBEDDED JAVASCRIPT ====== -->
   </body>
 </html>
+
 
